@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest cache
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Raw upstream data archives & API extracts (~106 MB)
+# Tracked via SHA-256 checksums in data/metadata/download_manifest.json
+# Reproduce locally via: python src/download_mmeig.py && python src/download_world_bank.py
+data/raw/mmeig/
+data/raw/world_bank/
+*.amlignore
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+~$*.pptx
+~$*.xlsx
+.vscode/
+.idea/
