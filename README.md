@@ -229,3 +229,14 @@ python src/create_notebook.py
 ```
 
 *Transparent AI Disclosure: This project was engineered in partnership between an MBBS clinician and Google DeepMind Antigravity AI, adhering to strict reproducible research protocols with zero synthetic or fabricated data.*
+
+---
+
+## AI-Assisted Development
+
+AI coding tools, including Antigravity/Gemini, were used to assist with code generation, implementation, and technical problem-solving during this project.
+
+As the project author, I directed the project goals and overall approach, applied my healthcare knowledge where relevant, and reviewed the implementation and outputs to the extent of my current technical understanding. My background is in medicine and healthcare software workflows, with practical foundational knowledge of Python, SQL, and databases.
+
+AI assistance accelerated implementation, but the project is presented as a transparent demonstration of my healthcare domain knowledge, analytical thinking, and ability to use modern tools to solve practical problems. I do not claim that every line of code was written independently.
+
