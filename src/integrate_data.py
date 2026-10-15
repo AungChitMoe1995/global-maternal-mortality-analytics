@@ -192,7 +192,8 @@ def build_analytical_master(base_dir: str):
     
     csv_temp = csv_out + '.building'
     parquet_temp = parquet_out + '.building'
-    master.to_csv(csv_temp, index=False)
+    # This file is hash-protected and must have identical bytes across platforms.
+    master.to_csv(csv_temp, index=False, lineterminator='\n')
     print(f"  [STAGED] CSV analytical dataset ({os.path.getsize(csv_temp):,} bytes)")
     
     master.to_parquet(parquet_temp, index=False)

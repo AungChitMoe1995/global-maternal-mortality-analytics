@@ -57,6 +57,11 @@ def test_stale_data_cannot_publish(tmp_path):
         load_results(tmp_path)
 
 
+def test_hash_protected_snapshot_uses_portable_line_endings():
+    data=(ROOT/'data/processed/maternal_mortality_analytical_master.csv').read_bytes()
+    assert b'\r' not in data, 'CRLF normalization by Git would invalidate the input hash on Linux'
+
+
 def test_generated_outputs_share_current_audited_input(snapshot):
     results,audit=load_results(ROOT)
     assert results['sample']['balanced_rows']==int(snapshot.is_balanced_sample.sum())

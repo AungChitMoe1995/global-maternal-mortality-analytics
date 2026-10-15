@@ -314,7 +314,7 @@ The observational ecological design cannot identify individual risk, parity, bir
 ## Reproducibility
 
 
-Analytical input SHA-256: `1dc945fec2030f3e21e5f47bd0ccfd31bc3dfbb036dcf9c070cc14213522e0e2`. Machine-readable coefficients, sample comparisons, VIF, country omissions and residuals are in `reports/tables/`.
+Analytical input SHA-256: `adb6de08142baa40051b4b54f2fd9c4fb821330db0a36ff68c7f50be8a31aed3`. Machine-readable coefficients, sample comparisons, VIF, country omissions and residuals are in `reports/tables/`.
 
 
 

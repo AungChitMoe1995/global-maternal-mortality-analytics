@@ -1,7 +1,7 @@
 {
   "title": "Global Maternal Mortality, 2000\u20132023",
   "subtitle": "Trends, inequalities and exploratory associations",
-  "data_sha256": "1dc945fec2030f3e21e5f47bd0ccfd31bc3dfbb036dcf9c070cc14213522e0e2",
+  "data_sha256": "adb6de08142baa40051b4b54f2fd9c4fb821330db0a36ff68c7f50be8a31aed3",
   "versions": {
     "python": "3.12.8",
     "numpy": "2.5.1",
