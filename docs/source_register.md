@@ -1,116 +1,33 @@
-# SOURCE REGISTER
-## Maternal Mortality Community Research Project (2000–2023)
+# Source register
 
-**Author:** Collaborative Research Team  
-**Investigator Profile:** MBBS Physician (Myanmar) transitioning into Health Data Analytics & Clinical Research  
-**Phase:** Phase 1 Deliverable — Source Discovery, Data Acquisition, and Verification  
-**Date of Audit:** October 2026  
+- [WHO/UN MMEIG, Trends in maternal mortality 2000 to 2023](https://www.who.int/publications/i/item/9789240108462), published 7 April 2025. Outcome estimates, live births, maternal death estimates and uncertainty limits come from its linked distribution archive.
+- [WHO full methodological report](https://pmnch.who.int/docs/librariesprovider9/meeting-reports/9789240108462-web-final.pdf?sfvrsn=db2a572e_3), sections 3.2.4 and 3.4.2, describes the GDP, general-fertility and skilled-attendance predictors and their role in data-sparse settings.
+- [World Bank WDI](https://databank.worldbank.org/source/world-development-indicators) supplies economic and demographic indicators through the API. Indicator metadata and original responses are cached by acquisition scripts.
+- [WHO financing definitions](https://www.who.int/data/gho/data/themes/topics/indicator-groups/indicator-group-details/GHO/health-expenditure) distinguish current expenditure from government expenditure and out-of-pocket financing.
 
----
+The MMEIG and WDI series are not independent confirmations of mortality. GDP and demographic information can inform the MMEIG model. WDI also republishes indicators produced by other agencies. File hashes provide provenance, not validation of epidemiological truth.
 
-### 1. Primary Authoritative Source: WHO / UN MMEIG (2025 Estimation Round)
+Country metadata use World Bank regional groupings, not WHO regions. Income labels remain fixed to this acquisition snapshot. Cook Islands is Unclassified in WDI here.
 
-* **Full Publication Title:** *Trends in maternal mortality 2000 to 2023: estimates by WHO, UNICEF, UNFPA, World Bank Group and UNDESA/Population Division*
-* **Publishing Organizations:** World Health Organization (WHO), United Nations Children's Fund (UNICEF), United Nations Population Fund (UNFPA), World Bank Group, and United Nations Department of Economic and Social Affairs (UNDESA) Population Division.
-* **Publication Date:** 7 April 2025
-* **ISBN:** 978-92-4-010846-2
-* **Official License:** Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO ([CC BY-NC-SA 3.0 IGO](https://creativecommons.org/licenses/by-nc-sa/3.0/igo/deed.en))
-* **Official Publication URL:** [https://www.who.int/publications/i/item/9789240108462](https://www.who.int/publications/i/item/9789240108462)
-* **Digital Repository Record (IRIS):** [https://iris.who.int/handle/10665/376483](https://iris.who.int/handle/10665/376483)
-* **Direct Report PDF Endpoint:** [https://iris.who.int/server/api/core/bitstreams/29f43a3d-2228-489c-b1e7-b2f28e9101ce/content](https://iris.who.int/server/api/core/bitstreams/29f43a3d-2228-489c-b1e7-b2f28e9101ce/content)
-* **Official Data Distribution Zip:** [https://cdn.who.int/media/docs/default-source/reproductive-health/maternal-health/trends-in-maternal-mortality-2000-to-2023-estimates-data.zip?sfvrsn=4718f695_7](https://cdn.who.int/media/docs/default-source/reproductive-health/maternal-health/trends-in-maternal-mortality-2000-to-2023-estimates-data.zip?sfvrsn=4718f695_7)
-* **Estimation Methodology Code Repository:** [https://github.com/WorldHealthOrganization/bmat](https://github.com/WorldHealthOrganization/bmat) (BMAT: Bayesian Maternal Mortality Model)
-* **Country Profiles Portal:** [https://who.canto.global/b/HH627](https://who.canto.global/b/HH627)
+## Acquired resources
 
-#### Dataset Scope and Characteristics
-* **Temporal Coverage:** 1985 to 2023 (complete annual time series; study focus is 2000–2023 covering MDG and SDG periods).
-* **Geographic Coverage:** 195 sovereign countries and territories (ISO 3166-1 alpha-3).
-* **Measures Provided:**
-  1. `mmr`: Maternal Mortality Ratio (maternal deaths per 100,000 live births).
-  2. `maternal_deaths`: Estimated absolute count of maternal deaths.
-  3. `pm`: Proportion of maternal deaths among all-cause deaths in women aged 15–49.
-  4. `lifetime_risk`: Adult lifetime probability of maternal death.
-  5. `lifetime_risk_1_in`: Adult lifetime risk expressed as 1-in-N women.
-  6. `births`: Annual live births (sourced from UN WPP 2024).
-  7. `coviddeaths`, `matcoviddeaths`, `covidmmr`: Excess COVID-19 pandemic mortality attribution.
-  8. `hiv_related_indirect_mmr`, `hiv_related_indirect_maternal_deaths`, `hiv_related_indirect_percentage`: HIV-associated indirect maternal mortality.
-* **Uncertainty Interval Standard:** 80% Uncertainty Interval (UI), presented as the 10th percentile (`0.1`), median point estimate (`0.5`), and 90th percentile (`0.9`).
-* **Input Files Available in Archive:**
-  * `main_data.csv`: 4,578 empirical data points from CRVS, specialized mortality studies, and population-based surveys (DHS, MICS, RAMOS).
-  * `Other inputs/estimates_base_0all_indicators_v2_sab_shared.xlsx`: Skilled Attendant at Birth (SAB) Bayesian modeled inputs (1985–2023).
-  * `Other inputs/WPP2024_Fertility_summary_MMEIG.xlsx`: UN World Population Prospects (WPP 2024) fertility estimates.
-  * `Other inputs/GDP MMEIG_2024-07-04 (1).xlsx`: Constant 2021 PPP GDP per capita inputs.
+The original retrieval timestamps are retained below. Cached raw files are rehashed by the audit when available. Re-downloading mutable WDI endpoints constitutes a new version.
 
----
-
-### 2. Secondary Authoritative Source: World Bank World Development Indicators (WDI)
-
-* **Source Organization:** World Bank Group (Development Data Group)
-* **Access Mechanism:** World Bank Indicators API v2 ([https://api.worldbank.org/v2](https://api.worldbank.org/v2))
-* **Documentation:** [https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures)
-* **License:** Creative Commons Attribution 4.0 International ([CC BY 4.0](https://datacatalog.worldbank.org/public-licenses#cc-by))
-* **Database Release Version / Metadata Timestamp:** October 2026 update (API `lastupdated: 2026-10-08`)
-* **Endpoint Pattern:** `https://api.worldbank.org/v2/country/all/indicator/{INDICATOR_CODE}?date=2000:2023&format=json&per_page=20000`
-
-#### Indicators Registered & Acquired
-
-| Indicator Code | Official Indicator Name | Research Domain | Periodicity | Primary Source Organization |
-|---|---|---|---|---|
-| `SH.MED.PHYS.ZS` | Physicians (per 1,000 people) | Healthcare Workforce | Annual (sparse) | World Health Organization (Global Health Observatory) |
-| `SH.MED.NUMW.P3` | Nurses and midwives (per 1,000 people) | Healthcare Workforce | Annual (sparse) | World Health Organization (GHO) |
-| `SE.ADT.LITR.FE.ZS` | Literacy rate, adult female (% ages 15+) | Female Education | Irregular | UNESCO Institute for Statistics (UIS) |
-| `SE.SEC.ENRR.FE` | School enrollment, secondary, female (% gross) | Female Education | Annual (moderate) | UNESCO Institute for Statistics (UIS) |
-| `SH.STA.BRTC.ZS` | Births attended by skilled health staff (%) | Maternal Healthcare Access | Irregular / Survey | UNICEF & WHO Joint Database |
-| `SH.STA.ANVC.ZS` | Pregnant women receiving prenatal care (4+ visits, %) | Maternal Healthcare Access | Irregular / Survey | UNICEF & WHO Joint Database |
-| `NY.GDP.PCAP.CD` | GDP per capita (current US$) | Economic Development | Annual | World Bank national accounts data |
-| `NY.GDP.PCAP.PP.KD` | GDP per capita, PPP (constant 2021 intl $) | Economic Development (Comparable) | Annual | World Bank, International Comparison Program |
-| `SH.XPD.CHEX.PC.CD` | Current health expenditure per capita (current US$) | Health Financing | Annual | World Health Organization (GHED) |
-| `SH.XPD.CHEX.GD.ZS` | Current health expenditure (% of GDP) | Health Financing | Annual | World Health Organization (GHED) |
-| `SP.DYN.TFRT.IN` | Fertility rate, total (births per woman) | Demographic / Fertility | Annual | UN Population Division (WPP 2024) |
-| `SP.ADO.TFRT` | Adolescent fertility rate (births per 1,000 ages 15-19) | Adolescent Reproductive Health | Annual | UN Population Division (WPP 2024) |
-| `SP.URB.TOTL.IN.ZS` | Urban population (% of total population) | Urbanization / Infrastructure | Annual | UN Population Division (World Urbanization Prospects) |
-
----
-
-### 3. Investigation of Additional Potential Sources
-
-As mandated by Phase 1, the following external sources were formally audited to assess whether they provide non-duplicative, openly accessible data for this research.
-
-#### A. WHO Global Health Observatory (GHO)
-* **Portal:** [https://www.who.int/data/gho](https://www.who.int/data/gho)
-* **Access:** Open API (`https://ghoapi.azureedge.net/api/`) and open CSV downloads.
-* **Assessment:** The GHO hosts the same underlying MMEIG estimates and the WHO Global Health Expenditure Database (GHED) indicators that are already mirrored in the World Bank WDI API. Directly querying GHO provides no additional maternal mortality data beyond the primary MMEIG 2025 archive. It remains a valuable reference for specific disease burden estimates if needed.
-
-#### B. UNESCO Institute for Statistics (UIS)
-* **Portal:** [https://uis.unesco.org/](https://uis.unesco.org/)
-* **Access:** Open bulk download and API.
-* **Assessment:** UIS is the source for female adult literacy (`SE.ADT.LITR.FE.ZS`) and secondary enrollment (`SE.SEC.ENRR.FE`). Inspection reveals that direct UIS data have identical coverage limitations to WDI: adult literacy is assessed intermittently through decennial censuses and national surveys, creating extensive gaps (>80% missingness). Secondary school enrollment provides substantially higher coverage and serves as a stronger proxy for female educational attainment across time.
-
-#### C. UNDP Human Development Reports (HDR)
-* **Portal:** [https://hdr.undp.org/data-center](https://hdr.undp.org/data-center)
-* **Access:** Open download (Composite HDI and Gender Inequality Index [GII]).
-* **Assessment:** The Gender Inequality Index (GII) incorporates maternal mortality ratio directly as one of its defining dimensions! Using GII as an independent explanatory variable to predict MMR would introduce mathematical endogeneity and collinearity. Standalone HDI components (education, income) are already captured directly via WDI indicators.
-
-#### D. UN DESA Population Division (World Population Prospects 2024)
-* **Portal:** [https://population.un.org/wpp/](https://population.un.org/wpp/)
-* **Access:** Open CSV and Excel downloads.
-* **Assessment:** WPP 2024 provides the demographic baseline for both MMEIG (female population 15–49, live births, all-cause female deaths) and WDI fertility indicators (`SP.DYN.TFRT.IN`, `SP.ADO.TFRT`). These demographic series are already directly included in our downloaded MMEIG archive (`Estimate_data_v2/Other inputs/WPP2024_Fertility_summary_MMEIG.xlsx`) and matched via the WDI API.
-
-#### E. Demographic and Health Surveys (DHS) Program
-* **Portal:** [https://dhsprogram.com/data/](https://dhsprogram.com/data/)
-* **Access:** Restricted microdata; requires institutional project registration and research approval. Aggregate indicator reports are public via STATcompiler.
-* **Assessment:** While DHS microdata offer deep clinical insight into maternal health practices (e.g., cesarean delivery rates, postpartum checks, transport barriers), the data are cross-sectional surveys conducted every 3–5 years across only ~90 low- and middle-income countries. Bypassing registration is prohibited by Rule 1. The national survey aggregates are already integrated into the MMEIG empirical input database (`main_data.csv`). Microdata analysis is beyond the scope of a cross-country macro-level study.
-
-#### F. UNICEF Data Portal
-* **Portal:** [https://data.unicef.org/](https://data.unicef.org/)
-* **Access:** Open topic portal. Direct programmatic access to specific sub-pages may be subject to cloud security (HTTP 403 on automated scrapers), but official data files are mirrored through WHO and UN inter-agency releases.
-* **Assessment:** UNICEF co-authors the MMEIG report and co-maintains the Joint Skilled Birth Attendance Database with WHO. The full data are already secured through the official WHO distribution package.
-
----
-
-### 4. Summary of Provenance and Reproducibility Principles
-
-1. **No Data Fabrication:** Every observation in the repository originates from official, traceable WHO/UN MMEIG or World Bank endpoints.
-2. **Strict Raw File Preservation:** All downloaded files (`trends-in-maternal-mortality-2000-to-2023-estimates-data.zip`, `9789240108462-eng.pdf`, raw JSON and CSV indicator files) are preserved immutably in `data/raw/`.
-3. **Cryptographic Verification:** Every file is hashed with SHA-256 and logged in `data/metadata/download_manifest.json`.
-4. **Differentiation of Data Types:** Modeled Bayesian estimates (MMEIG MMR, UN WPP fertility) are strictly differentiated from survey-based intermittent metrics (SBA, literacy) and national accounts data (GDP, health expenditure).
+| resource_id              | source                | retrieval_timestamp              | local_path                                                                  | sha256                                                           |
+|:-------------------------|:----------------------|:---------------------------------|:----------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| MMEIG_2025_ESTIMATES_ZIP | WHO/UN MMEIG          | 2026-10-09T03:50:54.975952+00:00 | data/raw/mmeig/trends-in-maternal-mortality-2000-to-2023-estimates-data.zip | c8b60a75cbcb64f7bc7c05d2dea725d885d3915b052307cd588c3fbf766b9227 |
+| MMEIG_2025_REPORT_PDF    | WHO/UN MMEIG          | 2026-10-09T03:50:54.975952+00:00 | data/raw/mmeig/9789240108462-eng.pdf                                        | e2e6773eb78614e99707a9d658a54317d4fa122492318f5bb7e76cfd42dc7869 |
+| WB_COUNTRY_METADATA      | World Bank API v2     | 2026-10-09T03:51:49.743954+00:00 | data/raw/world_bank/csv/wb_countries_metadata.csv                           | 0e54f9d231b2eb8b9eb5a268cedf207febccea71869d488777c2c47a086d7548 |
+| WB_IND_SH.MED.PHYS.ZS    | World Bank WDI API v2 | 2026-10-09T03:51:51.705637+00:00 | data/raw/world_bank/csv/SH.MED.PHYS.ZS.csv                                  | 581604a1a6e14bec215f526b5edc2bb7dc8ea0a7bc0b9a3708ae1114c8a2b5e7 |
+| WB_IND_SE.ADT.LITR.FE.ZS | World Bank WDI API v2 | 2026-10-09T03:51:58.038989+00:00 | data/raw/world_bank/csv/SE.ADT.LITR.FE.ZS.csv                               | 056ecb8bd123f2df3d5188b63543ba301cc12d70316fa0845f80bf33b90ba025 |
+| WB_IND_SH.STA.BRTC.ZS    | World Bank WDI API v2 | 2026-10-09T03:52:01.901131+00:00 | data/raw/world_bank/csv/SH.STA.BRTC.ZS.csv                                  | 36dddb991d6aab3cc582990b6c482706ad310d09ca30443892afdaa5690f4d68 |
+| WB_IND_NY.GDP.PCAP.CD    | World Bank WDI API v2 | 2026-10-09T03:52:03.317572+00:00 | data/raw/world_bank/csv/NY.GDP.PCAP.CD.csv                                  | 23071668aef7ec8e457a96597dfcf0c9154aef86ddaa92fcc1d073db9f295fb2 |
+| WB_IND_SH.XPD.CHEX.PC.CD | World Bank WDI API v2 | 2026-10-09T03:52:05.262935+00:00 | data/raw/world_bank/csv/SH.XPD.CHEX.PC.CD.csv                               | 2336952bd0145ed6c5ea96952b9400f501ea47b089584878062d268ef243aa65 |
+| WB_IND_SP.DYN.TFRT.IN    | World Bank WDI API v2 | 2026-10-09T03:52:07.600454+00:00 | data/raw/world_bank/csv/SP.DYN.TFRT.IN.csv                                  | dd263d7c905dcc6d3f3283bb9c02d3e5c282519f2253c2c9d4753b8826c5afad |
+| WB_IND_SP.ADO.TFRT       | World Bank WDI API v2 | 2026-10-09T03:52:11.150080+00:00 | data/raw/world_bank/csv/SP.ADO.TFRT.csv                                     | 402cea787c6eb76a5425a96f6ce0df578160c2c126b2c02f4667b593dcd2b166 |
+| WB_IND_SP.URB.TOTL.IN.ZS | World Bank WDI API v2 | 2026-10-09T03:52:17.632821+00:00 | data/raw/world_bank/csv/SP.URB.TOTL.IN.ZS.csv                               | 5b59510989291a942336edbd117480a9a8e510927989f8f0414da52fbb6dd64b |
+| WB_IND_NY.GDP.PCAP.PP.KD | World Bank WDI API v2 | 2026-10-09T03:52:19.481126+00:00 | data/raw/world_bank/csv/NY.GDP.PCAP.PP.KD.csv                               | 79c5d2e589cfc114674e3feafa9be61b495893504368434dd4d6d0c7c88e1194 |
+| WB_IND_SH.XPD.CHEX.GD.ZS | World Bank WDI API v2 | 2026-10-09T03:52:20.832417+00:00 | data/raw/world_bank/csv/SH.XPD.CHEX.GD.ZS.csv                               | 5051d23730b8104bbe9a3e17413599f624f012f1d7345956b32c198df0aaf6aa |
+| WB_IND_SH.MED.NUMW.P3    | World Bank WDI API v2 | 2026-10-09T03:52:29.891633+00:00 | data/raw/world_bank/csv/SH.MED.NUMW.P3.csv                                  | 434ff36b4edcdcda43c2b6996b8efab9e568cfb8a3d0ba08bc97ca9504cd2bb0 |
+| WB_IND_SH.STA.ANVC.ZS    | World Bank WDI API v2 | 2026-10-09T03:52:39.162419+00:00 | data/raw/world_bank/csv/SH.STA.ANVC.ZS.csv                                  | bd3f63fc55d8fa56bbab6c90dd69453b878de5bd7a48e9ca9825482ed117c17d |
+| WB_IND_SE.SEC.ENRR.FE    | World Bank WDI API v2 | 2026-10-09T03:52:47.023313+00:00 | data/raw/world_bank/csv/SE.SEC.ENRR.FE.csv                                  | 226f633983d82c91dbd3212c0b44ac0224f8324eab6888936859f87f8aafd0c8 |

@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS fact_mmeig_estimates (
 -- 3. Integrated Analytical Master Table
 CREATE TABLE IF NOT EXISTS analytical_master (
     country_iso3            TEXT NOT NULL,
+    iso2_code               TEXT,
     year                    INTEGER NOT NULL,
     country_name            TEXT,
     region_name             TEXT,

@@ -1,0 +1,6 @@
+term,label,vif
+log_gdp_pcap_ppp,Log GDP per capita (constant PPP),1.0474662109689548
+chex_gdp_pct,Current health expenditure (% GDP),1.0363499335311839
+tfr,Total fertility (births/woman),1.8410685004299954
+ado_fert_rate,"Adolescent fertility (births/1,000)",1.7162954579583571
+urban_pct,Urban population (%),1.1154990430159075

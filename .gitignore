@@ -5,6 +5,10 @@ __pycache__/
 
 # Pytest cache
 .pytest_cache/
+.pytest-tmp/
+.jupyter-runtime/
+_site/
+*.building
 
 # Virtual environments
 .venv/

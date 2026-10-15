@@ -1,3 +1,5 @@
+> Historical acquisition record: the current methods and sample counts are maintained in methodology.md and research_protocol.md. Original retrieval records below are retained for provenance.
+
 # DATA ACQUISITION AND ENGINEERING RUN LOG
 ## Maternal Mortality Community Research Project (2000–2023)
 

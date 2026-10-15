@@ -60,9 +60,9 @@ def build_analytical_master(base_dir: str):
     })[["country_iso3", "year", "lifetime_risk_1_in"]]
     
     # Merge MMEIG fields
-    df_mmeig_merged = piv_mmr.merge(piv_deaths, on=["country_iso3", "year"], how="left")
-    df_mmeig_merged = df_mmeig_merged.merge(piv_births, on=["country_iso3", "year"], how="left")
-    df_mmeig_merged = df_mmeig_merged.merge(piv_risk, on=["country_iso3", "year"], how="left")
+    df_mmeig_merged = piv_mmr.merge(piv_deaths, on=["country_iso3", "year"], how="left", validate="one_to_one")
+    df_mmeig_merged = df_mmeig_merged.merge(piv_births, on=["country_iso3", "year"], how="left", validate="one_to_one")
+    df_mmeig_merged = df_mmeig_merged.merge(piv_risk, on=["country_iso3", "year"], how="left", validate="one_to_one")
     print(f"      MMEIG harmonized: {len(df_mmeig_merged)} country-year records ({df_mmeig_merged['country_iso3'].nunique()} countries).")
     
     # Also load MMEIG internal modeled SAB
@@ -116,6 +116,9 @@ def build_analytical_master(base_dir: str):
                 "country_iso3": "country_iso3",
                 "value": colname
             })[["country_iso3", "year", colname]]
+            # WDI downloads also contain aggregates with missing ISO3 codes.
+            # Restrict to the actual MMEIG country universe before validating keys.
+            sub = sub.loc[sub.country_iso3.isin(piv_mmr.country_iso3.unique())].copy()
             wb_indicator_dfs[colname] = sub
         else:
             print(f"      [WARNING] Indicator file missing: {fname}")
@@ -125,16 +128,21 @@ def build_analytical_master(base_dir: str):
     # ---------------------------------------------------------
     print("[4/5] Merging primary outcome and explanatory variables...")
     # Base is MMEIG merged (195 countries x 24 years = 4,680)
-    master = df_mmeig_merged.merge(df_countries, on="country_iso3", how="left")
+    # Cook Islands has no WDI classification. Do not invent an income tier.
+    if 'COK' not in set(df_countries.country_iso3):
+        df_countries = pd.concat([df_countries, pd.DataFrame([dict(
+            country_iso3='COK', iso2_code='CK', country_name='Cook Islands',
+            region_name='Unclassified', income_level_name='Unclassified')])], ignore_index=True)
+    master = df_mmeig_merged.merge(df_countries, on="country_iso3", how="left", validate="many_to_one")
     
     # Join WB indicators
     for colname, df_sub in wb_indicator_dfs.items():
-        master = master.merge(df_sub, on=["country_iso3", "year"], how="left")
+        master = master.merge(df_sub, on=["country_iso3", "year"], how="left", validate="one_to_one")
         
     # Standardize country name for entities not in WB (e.g. Cook Islands COK)
     master.loc[master["country_iso3"] == "COK", "country_name"] = "Cook Islands"
-    master.loc[master["country_iso3"] == "COK", "region_name"] = "East Asia & Pacific"
-    master.loc[master["country_iso3"] == "COK", "income_level_name"] = "High income"
+    master.loc[master["country_iso3"] == "COK", "region_name"] = "Unclassified"
+    master.loc[master["country_iso3"] == "COK", "income_level_name"] = "Unclassified"
     
     # ---------------------------------------------------------
     # 5. Feature Engineering & Transformations
@@ -159,7 +167,7 @@ def build_analytical_master(base_dir: str):
     # Balanced Panel Identifier for Solution 1 Core Variables
     # Core variables: log_mmr_pt, log_gdp_pcap_ppp, chex_gdp_pct, tfr, ado_fert_rate, urban_pct
     core_cols = ["log_mmr_pt", "log_gdp_pcap_ppp", "chex_gdp_pct", "tfr", "ado_fert_rate", "urban_pct"]
-    master["has_all_core_vars"] = master[core_cols].notnull().all(axis=1).astype(int)
+    master["has_all_core_vars"] = np.isfinite(master[core_cols]).all(axis=1).astype(int)
     
     # Identify countries with complete 24/24 series for all core variables
     complete_countries = master.groupby("country_iso3")["has_all_core_vars"].sum()
@@ -182,22 +190,32 @@ def build_analytical_master(base_dir: str):
     parquet_out = os.path.join(processed_dir, "maternal_mortality_analytical_master.parquet")
     db_out = os.path.join(processed_dir, "maternal_mortality.db")
     
-    master.to_csv(csv_out, index=False)
-    print(f"  [SAVED] CSV analytical dataset: {csv_out} ({os.path.getsize(csv_out):,} bytes)")
+    csv_temp = csv_out + '.building'
+    parquet_temp = parquet_out + '.building'
+    master.to_csv(csv_temp, index=False)
+    print(f"  [STAGED] CSV analytical dataset ({os.path.getsize(csv_temp):,} bytes)")
     
-    master.to_parquet(parquet_out, index=False)
-    print(f"  [SAVED] Parquet dataset: {parquet_out} ({os.path.getsize(parquet_out):,} bytes)")
+    master.to_parquet(parquet_temp, index=False)
+    print(f"  [STAGED] Parquet dataset ({os.path.getsize(parquet_temp):,} bytes)")
     
     # SQLite Database Export
-    conn = sqlite3.connect(db_out)
-    master.to_sql("analytical_master", conn, if_exists="replace", index=False)
-    
-    # Save standalone normalized tables in SQLite
-    df_countries.to_sql("dim_countries", conn, if_exists="replace", index=False)
-    df_mmeig_merged.to_sql("fact_mmeig_estimates", conn, if_exists="replace", index=False)
+    db_temp = db_out + '.building'
+    if os.path.exists(db_temp):
+        os.remove(db_temp)
+    conn = sqlite3.connect(db_temp)
+    conn.execute('PRAGMA foreign_keys=ON')
+    conn.executescript('DROP TABLE IF EXISTS analytical_master; DROP TABLE IF EXISTS fact_mmeig_estimates; DROP TABLE IF EXISTS dim_countries;')
+    with open(os.path.join(base_dir, 'sql', 'schema.sql'), encoding='utf-8') as schema:
+        conn.executescript(schema.read())
+    df_countries.to_sql("dim_countries", conn, if_exists="append", index=False)
+    df_mmeig_merged.to_sql("fact_mmeig_estimates", conn, if_exists="append", index=False)
+    master.to_sql("analytical_master", conn, if_exists="append", index=False)
     
     conn.commit()
     conn.close()
+    # Publish the completed outputs only after all SQL constraints succeed.
+    for staged, final in [(csv_temp, csv_out), (parquet_temp, parquet_out), (db_temp, db_out)]:
+        os.replace(staged, final)
     print(f"  [SAVED] SQLite database: {db_out} ({os.path.getsize(db_out):,} bytes)")
     
     return master

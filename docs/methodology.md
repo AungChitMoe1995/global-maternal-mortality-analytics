@@ -1,99 +1,50 @@
-# METHODOLOGY AND ECONOMETRIC FRAMEWORK
-## Macroeconomic Financing, Demographic Transition, and Global Maternal Mortality: A 24-Year Longitudinal Study across 195 Countries (177-Country Balanced Panel, 2000–2023)
+# Methods
 
-**Author:** Dr. Aung Chit Moe (MBBS)  
-**Investigator Profile:** MBBS Physician (Myanmar) transitioning into Healthcare Data Analytics  
-**Date:** October 2026  
-**Document Type:** Formal Methodological & Econometric Documentation  
+## Research question and design
 
----
+How did estimated national maternal mortality change from 2000 to 2023, how did inequalities differ by fixed income classification, and what exploratory associations appear with economic and demographic indicators?
 
-### 1. Conceptual Framework: Macro-Structural Determinants of Maternal Survival
+This is a secondary analysis of public country-year aggregates. Descriptive analyses retain all 195 countries and territories. Regression analyses use 177 countries with complete data for all 24 years (4,248 rows) and compare the result with 4,406 complete country-years in an unbalanced panel. Equal country-year weighting describes the average country association rather than the average pregnancy.
 
-In clinical obstetrics, maternal deaths are directly caused by acute pathophysiological events: severe postpartum hemorrhage, eclamptic convulsions, puerperal sepsis, obstructed labor, or unsafe abortion complications. 
+## Outcome and provenance
 
-However, at the macro-epidemiological level, whether a woman survives an obstetric emergency is heavily determined by what Thaddeus and Maine (1994) conceptualized as the **Three Delays**:
-1. *Delay 1: Deciding to seek care* (governed by female empowerment, awareness, cultural norms, and financial barriers).
-2. *Delay 2: Reaching an adequate health facility* (governed by roads, transport infrastructure, and geographic accessibility).
-3. *Delay 3: Receiving adequate, timely emergency care upon arrival* (governed by staffing, 24/7 surgical capacity, blood banking, and health system financing).
+MMR is estimated maternal deaths per 100,000 live births. The 2025 MMEIG estimation round supplies posterior medians and marginal 80% uncertainty limits, not complete annual censuses of maternal deaths. GDP uses constant 2021 international PPP dollars. SHA-256 records establish file identity, not scientific validity. See the [source register](source_register.md) and [calculated audit](data_quality_report.md).
 
-Our analytical framework models these macro-level structural enablers:
+## Dependence on the upstream model
 
-```
-                           MACRO-STRUCTURAL DETERMINANTS
-┌─────────────────────────────────┐       ┌─────────────────────────────────┐
-│     MACROECONOMIC CAPACITY      │       │     HEALTH FINANCING PRIORITY   │
-│  Real GDP per Capita (PPP 2021) │       │   Health Expenditure % of GDP   │
-└────────────────┬────────────────┘       └────────────────┬────────────────┘
-                 │                                         │
-                 ▼                                         ▼
-   [General Infrastructure & Roads]          [CEmOC Facilities & Staffing]
-                 │                                         │
-                 └──────────────────┬──────────────────────┘
-                                    │
-                                    ▼
-┌───────────────────────────────────────────────────────────────────────────┐
-│                          OBSTETRIC RISK ENVIRONMENT                       │
-│    • Total Fertility Rate (Cumulative Obstetric Lifetime Exposure)        │
-│    • Adolescent Fertility Rate (Biological Immaturity & Marginalization)   │
-│    • Urbanization % (Proximity to Referral Hospitals)                     │
-└───────────────────────────────────┬───────────────────────────────────────┘
-                                    │
-                                    ▼
-┌───────────────────────────────────────────────────────────────────────────┐
-│                          PRIMARY PUBLIC-HEALTH OUTCOME                    │
-│           ln(MMR) : Maternal Deaths per 100,000 Live Births               │
-│                 (WHO / UN MMEIG 2025 Estimation Round)                    │
-└───────────────────────────────────────────────────────────────────────────┘
-```
+The [WHO report](https://pmnch.who.int/docs/librariesprovider9/meeting-reports/9789240108462-web-final.pdf?sfvrsn=db2a572e_3), sections 3.2.4 and 3.4.2, identifies GDP per capita, general fertility rate and skilled birth attendance as BMat predictors. In data-sparse settings these predictors can strongly inform the estimated mortality trajectory. Regressing MMEIG MMR on GDP is therefore partly dependent on the construction of the outcome. Total fertility rate is distinct from general fertility rate, but related demographic inputs also limit independence. Omitting skilled birth attendance does not remove circularity. The models describe associations in this snapshot and do not independently estimate effects of GDP or fertility.
 
----
+## Descriptive estimands
 
-### 2. Mathematical Specification of Econometric Models
+- Country mean and country median MMR give every country equal weight.
+- Derived aggregate MMR is 100,000 × sum(country posterior median maternal deaths) / sum(live births). It is a snapshot calculation and need not equal the posterior median of the official aggregate. Marginal uncertainty limits are not summed to construct aggregate uncertainty.
+- Income classifications come from the WDI country metadata acquired with this dataset and remain fixed throughout 2000–2023. They are not historical income classifications. Cook Islands lacks a WDI classification and is labeled Unclassified.
+- Expenditure quartile boundaries come from the observed 2023 balanced sample. Both counts and boundaries are exported.
 
-#### A. Dependent Variable Transformation
-The distribution of maternal mortality ratio across countries is severely right-skewed (in 2023, spanning from 0.1 in San Marino to 992.8 in South Sudan, with a skewness coefficient > 2.5). We apply the natural logarithmic transformation:
-$$y_{it} = \ln(\text{MMR}_{it})$$
-This ensures residual homoskedasticity and normal error distributions, while allowing estimated coefficients to be interpreted as constant proportional elasticities or semi-elasticities.
+## Exploratory model specification
 
-#### B. Cross-Sectional Benchmark Models (OLS)
-Estimated at benchmark years $t \in \{2000, 2010, 2023\}$:
-$$\ln(\text{MMR}_i) = \beta_0 + \beta_1 \ln(\text{GDP}_{i}) + \beta_2 \text{HealthExp}_{i} + \beta_3 \text{TFR}_i + \beta_4 \text{AdoFert}_i + \beta_5 \text{Urban}_i + \epsilon_i$$
-* **Variance-Covariance Estimation:** Huber-White heteroskedasticity-consistent standard errors (HC1) are used to prevent anti-conservative p-values.
+`log(MMR_it) = country_FE_i + year_FE_t + b1*log(GDP_PPP_it) + b2*CHE_GDP_it + b3*TFR_it + b4*adolescent_fertility_it + b5*urban_pct_it + error_it`.
 
-#### C. Primary Longitudinal Model: Two-Way Fixed Effects (TWFE)
-To isolate within-country changes over time and eliminate confounding from time-invariant national characteristics:
-$$\ln(\text{MMR}_{it}) = \alpha_i + \gamma_t + \beta_1 \ln(\text{GDP}_{it}) + \beta_2 \text{HealthExp}_{it} + \beta_3 \text{TFR}_{it} + \beta_4 \text{AdoFert}_{it} + \beta_5 \text{Urban}_{it} + \epsilon_{it}$$
-* $\alpha_i$ represents **Country Fixed Effects**, absorbing all historical, cultural, climatic, baseline institutional, and geographic traits of country $i$ that do not change over time.
-* $\gamma_t$ represents **Year Fixed Effects**, absorbing all global time shocks (global economic cycles, WHO guideline releases, international drug availability, secular technological advances) that affect all countries equally in year $t$.
-* **Within Transformation (Demeaning):**
-  For each variable $z_{it}$, the two-way demeaned transformation is computed as:
-  $$\tilde{z}_{it} = z_{it} - \bar{z}_{i\cdot} - \bar{z}_{\cdot t} + \bar{z}_{\cdot\cdot}$$
-  where $\bar{z}_{i\cdot}$ is the country-specific mean, $\bar{z}_{\cdot t}$ is the annual cross-national mean, and $\bar{z}_{\cdot\cdot}$ is the grand sample mean.
-* **Inference and Standard Errors:** Standard errors are clustered at the country level ($\text{CRV1}$):
-  $$V_{\text{cluster}} = (X'X)^{-1} \left( \sum_{i=1}^G X_i' \hat{\epsilon}_i \hat{\epsilon}_i' X_i \right) (X'X)^{-1}$$
-  This accounts for arbitrary serial correlation and heteroskedasticity across the 24 years within each country.
+Explicit country/year dummy variables correctly handle both balanced and unbalanced samples. The full design parameter count enters the cluster covariance finite-sample correction. Panel standard errors cluster by country, with t inference on G−1 degrees of freedom. Cross-sectional fits in 2000, 2010 and 2023 use HC1 standard errors with t inference. Fixed effects account for fixed national differences and common year shocks, not time-varying confounding or reverse causality. Log transformation does not guarantee normal or homoskedastic residuals.
 
----
+GDP is a log-log coefficient. Other slopes are semi-elasticities per displayed indicator unit. Report estimates with 95% confidence intervals. These intervals are conditional regression intervals, not intervals for an intervention effect and not a full propagation of MMEIG estimation uncertainty. No predictive validation is claimed.
 
-### 3. Handling of Posterior Estimation Uncertainty
+## Sensitivity analyses actually implemented
 
-The MMEIG 2025 dataset provides Bayesian posterior distributions with 80% Uncertainty Intervals:
-* Lower bound: 10th percentile (`0.1`)
-* Point estimate: 50th percentile (`0.5`)
-* Upper bound: 90th percentile (`0.9`)
+1. All complete country-years, with country and year effects.
+2. Balanced countries restricted to 2000–2019.
+3. Separate lower and upper marginal MMR uncertainty-limit outcomes.
+4. Consecutive annual first differences of outcome and predictors, with year effects and country-clustered inference.
+5. Separate models within the fixed income tiers. These exploratory subgroup analyses have fewer country clusters and do not establish differences between subgroup coefficients.
 
-To ensure our findings are not artifacts of point estimate assumptions, we conduct **Extreme-Bound Sensitivity Re-Estimation**:
-1. *Point Estimate Regression:* $\ln(\text{MMR}_{it}^{50\%})$ as outcome.
-2. *Lower Bound Regression:* $\ln(\text{MMR}_{it}^{10\%})$ as outcome.
-3. *Upper Bound Regression:* $\ln(\text{MMR}_{it}^{90\%})$ as outcome.
+Outcome-bound replacements are not joint posterior draws. They neither supply posterior coefficient uncertainty nor prove robustness to measurement error. A source-quality-restricted analysis is not implemented because defensible country-period CRVS quality classifications have not been constructed. Presence of any CRVS record alone would not justify such a classification.
 
-If coefficient signs and statistical significance remain stable across the lower and upper posterior bounds, the relationships are established as robust to measurement uncertainty.
+## Diagnostics and sample selection
 
----
+Export within-transformed predictor VIF, country-model residuals, pooled within-country lag-1 residual correlation and GDP slopes after omitting one country at a time. The omission exercise re-demeans the remaining rectangular panel and uses least squares; it is a descriptive influence diagnostic without new inferential claims. Compare baseline and endpoint characteristics and missingness for included and excluded countries. Complete-case analysis can exclude countries systematically and does not eliminate selection bias.
 
-### 4. Methodological Strengths & Distinctions from Prior Work
+## Interpretation of financing and fertility
 
-1. **Circumventing Circularity:** By focusing on health expenditure prioritization (% GDP), fertility dynamics, and constant-price purchasing power, we do not regress MMEIG estimates on skilled birth attendance in countries where MMEIG used SBA to generate the estimate.
-2. **Elimination of Selection Bias:** Using Solution 1 maintains 177 countries (4,248 observations) in a continuous balanced panel, compared to <40 countries if adult literacy were used.
-3. **Purchasing Power Parity:** Utilizing constant 2021 PPP dollars eliminates 24 years of exchange rate swings and inflation distortion.
+Current health expenditure as a share of GDP includes public, private and external financing. It does not isolate government priority, maternal health budgets or efficient service delivery. The GDP denominator can change independently of spending. [WHO publishes distinct financing indicators](https://www.who.int/data/gho/data/themes/topics/indicator-groups/indicator-group-details/GHO/health-expenditure) for government expenditure, private expenditure and out-of-pocket payments.
+
+National total fertility does not measure a woman's parity or spacing. Adolescent fertility is a national birth rate, not an individual risk estimate. The dataset cannot identify hemorrhage, eclampsia, referral delays, roads or blood-bank mechanisms. Such mechanisms require appropriate clinical or health-system data and separate literature evidence.

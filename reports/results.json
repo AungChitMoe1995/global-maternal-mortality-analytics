@@ -1,0 +1,2175 @@
+{
+  "title": "Global Maternal Mortality, 2000\u20132023",
+  "subtitle": "Trends, inequalities and exploratory associations",
+  "data_sha256": "1dc945fec2030f3e21e5f47bd0ccfd31bc3dfbb036dcf9c070cc14213522e0e2",
+  "versions": {
+    "python": "3.12.8",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0"
+  },
+  "sample": {
+    "all_countries": 195,
+    "all_rows": 4680,
+    "balanced_countries": 177,
+    "balanced_rows": 4248,
+    "complete_rows": 4406,
+    "complete_countries": 186
+  },
+  "caveat": "MMEIG estimates already use GDP, general fertility and skilled birth attendance. Regressions on these modeled outcomes are exploratory associations, not independent estimates of causal effects. National fertility does not measure individual parity or spacing.",
+  "global_trends": [
+    {
+      "year": 2000,
+      "n_countries": 195,
+      "median_mmr": 70.98792696,
+      "mean_mmr": 235.4837033214308,
+      "maternal_deaths": 440079.24011045694,
+      "live_births": 135308747.0,
+      "aggregate_mmr": 325.2407917948253
+    },
+    {
+      "year": 2001,
+      "n_countries": 195,
+      "median_mmr": 68.08628507,
+      "mean_mmr": 226.13354576644613,
+      "maternal_deaths": 430470.17076724506,
+      "live_births": 134949171.0,
+      "aggregate_mmr": 318.98689527129073
+    },
+    {
+      "year": 2002,
+      "n_countries": 195,
+      "median_mmr": 65.96649073,
+      "mean_mmr": 217.6993079234769,
+      "maternal_deaths": 417559.76132329495,
+      "live_births": 134981636.0,
+      "aggregate_mmr": 309.3456070745023
+    },
+    {
+      "year": 2003,
+      "n_countries": 195,
+      "median_mmr": 66.7650926,
+      "mean_mmr": 208.6904897366564,
+      "maternal_deaths": 404440.796000369,
+      "live_births": 135302802.0,
+      "aggregate_mmr": 298.91531440743483
+    },
+    {
+      "year": 2004,
+      "n_countries": 195,
+      "median_mmr": 63.03609453,
+      "mean_mmr": 201.98752470355896,
+      "maternal_deaths": 393897.351802435,
+      "live_births": 136208170.0,
+      "aggregate_mmr": 289.18775709447897
+    },
+    {
+      "year": 2005,
+      "n_countries": 195,
+      "median_mmr": 60.07114127,
+      "mean_mmr": 197.63164535145128,
+      "maternal_deaths": 384431.783902091,
+      "live_births": 136783239.0,
+      "aggregate_mmr": 281.05182090481935
+    },
+    {
+      "year": 2006,
+      "n_countries": 195,
+      "median_mmr": 58.1434583,
+      "mean_mmr": 194.28285489786663,
+      "maternal_deaths": 378720.887898331,
+      "live_births": 138086495.0,
+      "aggregate_mmr": 274.2635243934108
+    },
+    {
+      "year": 2007,
+      "n_countries": 195,
+      "median_mmr": 56.80667155,
+      "mean_mmr": 193.06768470018466,
+      "maternal_deaths": 373726.151299728,
+      "live_births": 139551966.0,
+      "aggregate_mmr": 267.80428969358127
+    },
+    {
+      "year": 2008,
+      "n_countries": 195,
+      "median_mmr": 55.75415788,
+      "mean_mmr": 192.8063833860564,
+      "maternal_deaths": 371273.36418152903,
+      "live_births": 141378729.0,
+      "aggregate_mmr": 262.60906913481233
+    },
+    {
+      "year": 2009,
+      "n_countries": 195,
+      "median_mmr": 56.25990184,
+      "mean_mmr": 191.2316989626359,
+      "maternal_deaths": 366377.691948353,
+      "live_births": 142599190.0,
+      "aggregate_mmr": 256.9283121091733
+    },
+    {
+      "year": 2010,
+      "n_countries": 195,
+      "median_mmr": 56.14203479,
+      "mean_mmr": 185.88523030596411,
+      "maternal_deaths": 359736.187342889,
+      "live_births": 142998217.0,
+      "aggregate_mmr": 251.56690404250915
+    },
+    {
+      "year": 2011,
+      "n_countries": 195,
+      "median_mmr": 54.97621855,
+      "mean_mmr": 179.05683190673332,
+      "maternal_deaths": 351725.945880767,
+      "live_births": 143496721.0,
+      "aggregate_mmr": 245.1107895913294
+    },
+    {
+      "year": 2012,
+      "n_countries": 195,
+      "median_mmr": 54.56368436,
+      "mean_mmr": 171.87414840295384,
+      "maternal_deaths": 343936.679185686,
+      "live_births": 145643830.0,
+      "aggregate_mmr": 236.1491586603332
+    },
+    {
+      "year": 2013,
+      "n_countries": 195,
+      "median_mmr": 53.2497457,
+      "mean_mmr": 165.49004991290255,
+      "maternal_deaths": 336246.2662480379,
+      "live_births": 144613703.0,
+      "aggregate_mmr": 232.5134197331479
+    },
+    {
+      "year": 2014,
+      "n_countries": 195,
+      "median_mmr": 52.83571595,
+      "mean_mmr": 161.33263423504616,
+      "maternal_deaths": 329253.6486130629,
+      "live_births": 144867733.0,
+      "aggregate_mmr": 227.2788023907732
+    },
+    {
+      "year": 2015,
+      "n_countries": 195,
+      "median_mmr": 51.87234718,
+      "mean_mmr": 155.7527471022205,
+      "maternal_deaths": 322169.241513378,
+      "live_births": 143933653.0,
+      "aggregate_mmr": 223.83176887296676
+    },
+    {
+      "year": 2016,
+      "n_countries": 195,
+      "median_mmr": 50.62311782,
+      "mean_mmr": 149.4556404792154,
+      "maternal_deaths": 311768.98156379303,
+      "live_births": 144463981.0,
+      "aggregate_mmr": 215.8108750746617
+    },
+    {
+      "year": 2017,
+      "n_countries": 195,
+      "median_mmr": 47.23220189,
+      "mean_mmr": 144.8005063690718,
+      "maternal_deaths": 300027.826117171,
+      "live_births": 143230283.0,
+      "aggregate_mmr": 209.47234050858575
+    },
+    {
+      "year": 2018,
+      "n_countries": 195,
+      "median_mmr": 49.32973142,
+      "mean_mmr": 136.01510666524103,
+      "maternal_deaths": 287496.036650276,
+      "live_births": 139978761.0,
+      "aggregate_mmr": 205.38547033594332
+    },
+    {
+      "year": 2019,
+      "n_countries": 195,
+      "median_mmr": 48.399628,
+      "mean_mmr": 134.64908298595384,
+      "maternal_deaths": 278132.33327439206,
+      "live_births": 138255753.0,
+      "aggregate_mmr": 201.17233984063728
+    },
+    {
+      "year": 2020,
+      "n_countries": 195,
+      "median_mmr": 56.00752292,
+      "mean_mmr": 135.33494809093335,
+      "maternal_deaths": 274150.76706682297,
+      "live_births": 134404412.0,
+      "aggregate_mmr": 203.97452954656202
+    },
+    {
+      "year": 2021,
+      "n_countries": 195,
+      "median_mmr": 76.61515702,
+      "mean_mmr": 151.74870651831796,
+      "maternal_deaths": 306280.530238525,
+      "live_births": 133145918.0,
+      "aggregate_mmr": 230.03373654949377
+    },
+    {
+      "year": 2022,
+      "n_countries": 195,
+      "median_mmr": 52.99854086,
+      "mean_mmr": 125.03110769881538,
+      "maternal_deaths": 257707.966940699,
+      "live_births": 132200636.0,
+      "aggregate_mmr": 194.93700994048092
+    },
+    {
+      "year": 2023,
+      "n_countries": 195,
+      "median_mmr": 46.64777161,
+      "mean_mmr": 116.62392039477436,
+      "maternal_deaths": 248742.94037113496,
+      "live_births": 131840623.0,
+      "aggregate_mmr": 188.66942123835
+    }
+  ],
+  "income_trends": [
+    {
+      "year": 2000,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 12.36923454,
+      "mean_mmr": 28.611338485453125,
+      "aggregate_mmr": 16.152042940696322
+    },
+    {
+      "year": 2000,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 785.7559761,
+      "mean_mmr": 824.6438689171998,
+      "aggregate_mmr": 736.1628098632578
+    },
+    {
+      "year": 2000,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 383.545165,
+      "mean_mmr": 381.98996746127665,
+      "aggregate_mmr": 453.05346550921547
+    },
+    {
+      "year": 2000,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.33141618,
+      "mean_mmr": 0.33141618,
+      "aggregate_mmr": 0.33141617250673855
+    },
+    {
+      "year": 2000,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 68.143394155,
+      "mean_mmr": 95.14206680724138,
+      "aggregate_mmr": 96.19599602794865
+    },
+    {
+      "year": 2001,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 12.57329002,
+      "mean_mmr": 27.91757911421875,
+      "aggregate_mmr": 15.798173495177576
+    },
+    {
+      "year": 2001,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 720.040587,
+      "mean_mmr": 785.9364845808,
+      "aggregate_mmr": 708.8636336484475
+    },
+    {
+      "year": 2001,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 400.0598268,
+      "mean_mmr": 369.25699807680854,
+      "aggregate_mmr": 440.23435907227326
+    },
+    {
+      "year": 2001,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.277513715,
+      "mean_mmr": 0.277513715,
+      "aggregate_mmr": 0.27751366279069767
+    },
+    {
+      "year": 2001,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 65.35614050999999,
+      "mean_mmr": 91.47496247072414,
+      "aggregate_mmr": 94.32179829256259
+    },
+    {
+      "year": 2002,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 13.032432385,
+      "mean_mmr": 27.4303725464375,
+      "aggregate_mmr": 15.674205979554364
+    },
+    {
+      "year": 2002,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 677.2326797,
+      "mean_mmr": 757.3088109788,
+      "aggregate_mmr": 686.6862691906061
+    },
+    {
+      "year": 2002,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 380.1861072,
+      "mean_mmr": 353.73327927893627,
+      "aggregate_mmr": 423.8357289359168
+    },
+    {
+      "year": 2002,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.225839605,
+      "mean_mmr": 0.225839605,
+      "aggregate_mmr": 0.22583968253968253
+    },
+    {
+      "year": 2002,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 61.9556977,
+      "mean_mmr": 88.57605106760346,
+      "aggregate_mmr": 91.172717104802
+    },
+    {
+      "year": 2003,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 12.613195059999999,
+      "mean_mmr": 26.873141376578126,
+      "aggregate_mmr": 15.47793234929334
+    },
+    {
+      "year": 2003,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 615.6745958,
+      "mean_mmr": 715.7794683,
+      "aggregate_mmr": 659.3222394250624
+    },
+    {
+      "year": 2003,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 365.5351875,
+      "mean_mmr": 342.9315123059574,
+      "aggregate_mmr": 407.45259449835464
+    },
+    {
+      "year": 2003,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.1816075,
+      "mean_mmr": 0.1816075,
+      "aggregate_mmr": 0.1816074433656958
+    },
+    {
+      "year": 2003,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 59.902982915,
+      "mean_mmr": 85.55715615805173,
+      "aggregate_mmr": 89.94322660836306
+    },
+    {
+      "year": 2004,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 11.356986365000001,
+      "mean_mmr": 26.45194870328125,
+      "aggregate_mmr": 14.813756965498275
+    },
+    {
+      "year": 2004,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 606.6716841,
+      "mean_mmr": 683.455998774,
+      "aggregate_mmr": 636.026081338062
+    },
+    {
+      "year": 2004,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 343.9954379,
+      "mean_mmr": 334.1990727195745,
+      "aggregate_mmr": 393.0413605774745
+    },
+    {
+      "year": 2004,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.143310129,
+      "mean_mmr": 0.143310129,
+      "aggregate_mmr": 0.14331016393442625
+    },
+    {
+      "year": 2004,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 57.304271895,
+      "mean_mmr": 84.49556729112068,
+      "aggregate_mmr": 89.3813999001922
+    },
+    {
+      "year": 2005,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 11.261778245,
+      "mean_mmr": 26.168628994171875,
+      "aggregate_mmr": 14.293577250706658
+    },
+    {
+      "year": 2005,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 612.5145506,
+      "mean_mmr": 664.7611133276,
+      "aggregate_mmr": 624.5498881147407
+    },
+    {
+      "year": 2005,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 326.3219938,
+      "mean_mmr": 327.14352025808506,
+      "aggregate_mmr": 379.04854722046485
+    },
+    {
+      "year": 2005,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.143791591,
+      "mean_mmr": 0.143791591,
+      "aggregate_mmr": 0.14379144736842103
+    },
+    {
+      "year": 2005,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 54.930746555,
+      "mean_mmr": 83.93899156887927,
+      "aggregate_mmr": 87.00040338812195
+    },
+    {
+      "year": 2006,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 10.96055726,
+      "mean_mmr": 25.320195384125004,
+      "aggregate_mmr": 13.415953002012987
+    },
+    {
+      "year": 2006,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 618.8113974,
+      "mean_mmr": 645.25678369,
+      "aggregate_mmr": 611.5349820997037
+    },
+    {
+      "year": 2006,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 318.043287,
+      "mean_mmr": 325.844775996383,
+      "aggregate_mmr": 369.17630035167014
+    },
+    {
+      "year": 2006,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.181850931,
+      "mean_mmr": 0.181850931,
+      "aggregate_mmr": 0.18185082508250824
+    },
+    {
+      "year": 2006,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 54.029943704999994,
+      "mean_mmr": 83.07514285325863,
+      "aggregate_mmr": 86.0262306838228
+    },
+    {
+      "year": 2007,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 10.401754555,
+      "mean_mmr": 24.773440215359376,
+      "aggregate_mmr": 13.026621968980418
+    },
+    {
+      "year": 2007,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 630.5016458,
+      "mean_mmr": 630.6431818307999,
+      "aggregate_mmr": 596.1073383821199
+    },
+    {
+      "year": 2007,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 323.8621205,
+      "mean_mmr": 331.9477055253192,
+      "aggregate_mmr": 361.9209979824562
+    },
+    {
+      "year": 2007,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.180189436,
+      "mean_mmr": 0.180189436,
+      "aggregate_mmr": 0.18018938356164385
+    },
+    {
+      "year": 2007,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 53.701096435,
+      "mean_mmr": 80.94649048029311,
+      "aggregate_mmr": 83.21462322670867
+    },
+    {
+      "year": 2008,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 9.851559345999998,
+      "mean_mmr": 24.366252768609378,
+      "aggregate_mmr": 12.835955740245147
+    },
+    {
+      "year": 2008,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 619.6251797,
+      "mean_mmr": 616.5701492879999,
+      "aggregate_mmr": 578.3503375062936
+    },
+    {
+      "year": 2008,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 310.0428781,
+      "mean_mmr": 341.0620561423404,
+      "aggregate_mmr": 357.23835959419176
+    },
+    {
+      "year": 2008,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.17730116,
+      "mean_mmr": 0.17730116,
+      "aggregate_mmr": 0.17730102040816326
+    },
+    {
+      "year": 2008,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 54.579372199999995,
+      "mean_mmr": 79.1975329489655,
+      "aggregate_mmr": 81.6906245383781
+    },
+    {
+      "year": 2009,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 9.9436245485,
+      "mean_mmr": 24.004320197953124,
+      "aggregate_mmr": 12.642376640955623
+    },
+    {
+      "year": 2009,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 608.3976644,
+      "mean_mmr": 605.2681016424001,
+      "aggregate_mmr": 565.4192076763545
+    },
+    {
+      "year": 2009,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 298.6754917,
+      "mean_mmr": 343.00421800723404,
+      "aggregate_mmr": 349.30417773638163
+    },
+    {
+      "year": 2009,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.175968871,
+      "mean_mmr": 0.175968871,
+      "aggregate_mmr": 0.1759687919463087
+    },
+    {
+      "year": 2009,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 54.040607805,
+      "mean_mmr": 77.60048359955172,
+      "aggregate_mmr": 78.12753716849478
+    },
+    {
+      "year": 2010,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 9.810843469,
+      "mean_mmr": 23.5189798125,
+      "aggregate_mmr": 12.298430873442811
+    },
+    {
+      "year": 2010,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 600.7433814,
+      "mean_mmr": 592.6517950488,
+      "aggregate_mmr": 551.594124081337
+    },
+    {
+      "year": 2010,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 288.6090495,
+      "mean_mmr": 331.20438425021274,
+      "aggregate_mmr": 340.75916969712296
+    },
+    {
+      "year": 2010,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.139810918,
+      "mean_mmr": 0.139810918,
+      "aggregate_mmr": 0.13981092715231785
+    },
+    {
+      "year": 2010,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 53.647302350000004,
+      "mean_mmr": 75.16145611663794,
+      "aggregate_mmr": 76.23807004527035
+    },
+    {
+      "year": 2011,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 9.7643866175,
+      "mean_mmr": 22.237755170015625,
+      "aggregate_mmr": 11.935721969248199
+    },
+    {
+      "year": 2011,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 584.9256953,
+      "mean_mmr": 568.8119988888,
+      "aggregate_mmr": 530.006689335431
+    },
+    {
+      "year": 2011,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 267.3203025,
+      "mean_mmr": 320.0090646210638,
+      "aggregate_mmr": 333.5428875190245
+    },
+    {
+      "year": 2011,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.139307768,
+      "mean_mmr": 0.139307768,
+      "aggregate_mmr": 0.13930786885245902
+    },
+    {
+      "year": 2011,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 51.91654836,
+      "mean_mmr": 72.96552713368965,
+      "aggregate_mmr": 73.50554433741912
+    },
+    {
+      "year": 2012,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 9.174472113499998,
+      "mean_mmr": 21.573586341859375,
+      "aggregate_mmr": 11.659139277186865
+    },
+    {
+      "year": 2012,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 549.0358392,
+      "mean_mmr": 548.9149130228001,
+      "aggregate_mmr": 508.17269911085276
+    },
+    {
+      "year": 2012,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 244.1808988,
+      "mean_mmr": 302.91019874851065,
+      "aggregate_mmr": 326.1657216995278
+    },
+    {
+      "year": 2012,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.142136293,
+      "mean_mmr": 0.142136293,
+      "aggregate_mmr": 0.14213615635179155
+    },
+    {
+      "year": 2012,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 51.21601099,
+      "mean_mmr": 71.9819846492069,
+      "aggregate_mmr": 69.66282585286446
+    },
+    {
+      "year": 2013,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 8.48875239,
+      "mean_mmr": 21.1486404715,
+      "aggregate_mmr": 11.460535197465465
+    },
+    {
+      "year": 2013,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 525.218631,
+      "mean_mmr": 532.4631032460001,
+      "aggregate_mmr": 489.8707835663489
+    },
+    {
+      "year": 2013,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 230.4086928,
+      "mean_mmr": 287.61672881510634,
+      "aggregate_mmr": 321.3866502898842
+    },
+    {
+      "year": 2013,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.145816066,
+      "mean_mmr": 0.145816066,
+      "aggregate_mmr": 0.14581616161616162
+    },
+    {
+      "year": 2013,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 49.846417360000004,
+      "mean_mmr": 70.47132916058621,
+      "aggregate_mmr": 67.08636484329851
+    },
+    {
+      "year": 2014,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 8.229633293500001,
+      "mean_mmr": 20.59011273615625,
+      "aggregate_mmr": 11.422259463375656
+    },
+    {
+      "year": 2014,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 497.213925,
+      "mean_mmr": 534.1934843839999,
+      "aggregate_mmr": 483.30738207535603
+    },
+    {
+      "year": 2014,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 216.7063553,
+      "mean_mmr": 271.3669937751064,
+      "aggregate_mmr": 315.6361350131834
+    },
+    {
+      "year": 2014,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.14873021,
+      "mean_mmr": 0.14873021,
+      "aggregate_mmr": 0.14873031358885017
+    },
+    {
+      "year": 2014,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 48.53889441,
+      "mean_mmr": 69.53210195655173,
+      "aggregate_mmr": 63.66931123376495
+    },
+    {
+      "year": 2015,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 8.025948297,
+      "mean_mmr": 20.56247151828125,
+      "aggregate_mmr": 11.340425893721681
+    },
+    {
+      "year": 2015,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 473.8866672,
+      "mean_mmr": 523.7636464791999,
+      "aggregate_mmr": 469.0561059576568
+    },
+    {
+      "year": 2015,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 210.0937347,
+      "mean_mmr": 257.43746338659577,
+      "aggregate_mmr": 308.20183230590584
+    },
+    {
+      "year": 2015,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.151024589,
+      "mean_mmr": 0.151024589,
+      "aggregate_mmr": 0.15102464285714284
+    },
+    {
+      "year": 2015,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 46.76950636,
+      "mean_mmr": 66.58594037972415,
+      "aggregate_mmr": 61.79027534048211
+    },
+    {
+      "year": 2016,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 8.0545610655,
+      "mean_mmr": 20.35124696546875,
+      "aggregate_mmr": 11.343567764985316
+    },
+    {
+      "year": 2016,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 469.8804851,
+      "mean_mmr": 505.9778801564,
+      "aggregate_mmr": 448.5712634855214
+    },
+    {
+      "year": 2016,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 204.4976007,
+      "mean_mmr": 244.81283115638297,
+      "aggregate_mmr": 298.1521276385723
+    },
+    {
+      "year": 2016,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.153186383,
+      "mean_mmr": 0.153186383,
+      "aggregate_mmr": 0.15318649635036496
+    },
+    {
+      "year": 2016,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 46.79706027,
+      "mean_mmr": 63.54425574162069,
+      "aggregate_mmr": 58.69413204420873
+    },
+    {
+      "year": 2017,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 7.8961694025,
+      "mean_mmr": 20.4711860745625,
+      "aggregate_mmr": 11.059552814896213
+    },
+    {
+      "year": 2017,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 453.0326894,
+      "mean_mmr": 495.7496898819999,
+      "aggregate_mmr": 428.3716085022877
+    },
+    {
+      "year": 2017,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 194.8883135,
+      "mean_mmr": 233.5838731274468,
+      "aggregate_mmr": 289.3307667109753
+    },
+    {
+      "year": 2017,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.157950578,
+      "mean_mmr": 0.157950578,
+      "aggregate_mmr": 0.15795074074074072
+    },
+    {
+      "year": 2017,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 44.43361378,
+      "mean_mmr": 61.26897583756896,
+      "aggregate_mmr": 55.703168293409014
+    },
+    {
+      "year": 2018,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 7.9653299315,
+      "mean_mmr": 20.503459236937502,
+      "aggregate_mmr": 10.907829390964912
+    },
+    {
+      "year": 2018,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 434.2751569,
+      "mean_mmr": 441.39632572639994,
+      "aggregate_mmr": 396.725200078219
+    },
+    {
+      "year": 2018,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 182.9122719,
+      "mean_mmr": 226.63709449829787,
+      "aggregate_mmr": 279.84511001164157
+    },
+    {
+      "year": 2018,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.165699002,
+      "mean_mmr": 0.165699002,
+      "aggregate_mmr": 0.1656988372093023
+    },
+    {
+      "year": 2018,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 44.29512665,
+      "mean_mmr": 60.753571120275865,
+      "aggregate_mmr": 56.633840068207085
+    },
+    {
+      "year": 2019,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 8.1071514895,
+      "mean_mmr": 20.337272057640625,
+      "aggregate_mmr": 10.762300791579356
+    },
+    {
+      "year": 2019,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 415.9578666,
+      "mean_mmr": 449.4805125796,
+      "aggregate_mmr": 382.962369426092
+    },
+    {
+      "year": 2019,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 173.4325177,
+      "mean_mmr": 217.5707578376596,
+      "aggregate_mmr": 270.6811587345515
+    },
+    {
+      "year": 2019,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.173217848,
+      "mean_mmr": 0.173217848,
+      "aggregate_mmr": 0.17321803278688525
+    },
+    {
+      "year": 2019,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 44.07851741,
+      "mean_mmr": 60.20645034248276,
+      "aggregate_mmr": 55.86129611851876
+    },
+    {
+      "year": 2020,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 11.337737975,
+      "mean_mmr": 26.365801811796874,
+      "aggregate_mmr": 14.229619606814152
+    },
+    {
+      "year": 2020,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 400.1448083,
+      "mean_mmr": 427.5337269699999,
+      "aggregate_mmr": 373.0376566474133
+    },
+    {
+      "year": 2020,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 163.9764828,
+      "mean_mmr": 215.6881696806383,
+      "aggregate_mmr": 263.88949996675564
+    },
+    {
+      "year": 2020,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.142221162,
+      "mean_mmr": 0.142221162,
+      "aggregate_mmr": 0.14222096069868995
+    },
+    {
+      "year": 2020,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 50.945616395,
+      "mean_mmr": 66.84610674784483,
+      "aggregate_mmr": 65.56228848977793
+    },
+    {
+      "year": 2021,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 11.0569239995,
+      "mean_mmr": 32.07262214190625,
+      "aggregate_mmr": 17.64756269598105
+    },
+    {
+      "year": 2021,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 403.2205497,
+      "mean_mmr": 435.6352269176,
+      "aggregate_mmr": 389.05354137053445
+    },
+    {
+      "year": 2021,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 210.5683328,
+      "mean_mmr": 240.56207109148934,
+      "aggregate_mmr": 293.92530567843795
+    },
+    {
+      "year": 2021,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.124845938,
+      "mean_mmr": 0.124845938,
+      "aggregate_mmr": 0.12484579439252336
+    },
+    {
+      "year": 2021,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 77.561105115,
+      "mean_mmr": 92.08494989331034,
+      "aggregate_mmr": 90.51675624957313
+    },
+    {
+      "year": 2022,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 9.8510764155,
+      "mean_mmr": 25.89632378753125,
+      "aggregate_mmr": 12.732731703941315
+    },
+    {
+      "year": 2022,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 365.0213741,
+      "mean_mmr": 379.954830796,
+      "aggregate_mmr": 338.4109032686789
+    },
+    {
+      "year": 2022,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 158.5692006,
+      "mean_mmr": 199.9647148370212,
+      "aggregate_mmr": 248.25091644206202
+    },
+    {
+      "year": 2022,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.3259093,
+      "mean_mmr": 0.3259093,
+      "aggregate_mmr": 0.32590913705583757
+    },
+    {
+      "year": 2022,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 48.31056552,
+      "mean_mmr": 65.96832762632758,
+      "aggregate_mmr": 64.12371290129383
+    },
+    {
+      "year": 2023,
+      "income": "High income",
+      "n_countries": 64,
+      "median_mmr": 7.665702356000001,
+      "mean_mmr": 19.1221795081875,
+      "aggregate_mmr": 9.811488791890563
+    },
+    {
+      "year": 2023,
+      "income": "Low income",
+      "n_countries": 25,
+      "median_mmr": 353.5635563,
+      "mean_mmr": 357.34663415399996,
+      "aggregate_mmr": 318.74521124624476
+    },
+    {
+      "year": 2023,
+      "income": "Lower middle income",
+      "n_countries": 47,
+      "median_mmr": 146.3742813,
+      "mean_mmr": 195.68775657808507,
+      "aggregate_mmr": 244.07917104368354
+    },
+    {
+      "year": 2023,
+      "income": "Unclassified",
+      "n_countries": 1,
+      "median_mmr": 0.107251073,
+      "mean_mmr": 0.107251073,
+      "aggregate_mmr": 0.10725112359550563
+    },
+    {
+      "year": 2023,
+      "income": "Upper middle income",
+      "n_countries": 58,
+      "median_mmr": 43.03308049,
+      "mean_mmr": 58.392195247655174,
+      "aggregate_mmr": 56.14087628901548
+    }
+  ],
+  "selection": [
+    {
+      "year": 2000,
+      "group": "Included",
+      "n_countries": 177,
+      "median_mmr": 67.64055932,
+      "mean_mmr": 217.74358088372318,
+      "log_gdp_pcap_ppp_median": 9.210073308832046,
+      "log_gdp_pcap_ppp_missing_pct": 0.0,
+      "chex_gdp_pct_median": 4.86549902,
+      "chex_gdp_pct_missing_pct": 0.0,
+      "tfr_median": 2.744,
+      "tfr_missing_pct": 0.0,
+      "ado_fert_rate_median": 48.544,
+      "ado_fert_rate_missing_pct": 0.0,
+      "urban_pct_median": 53.9332149202283,
+      "urban_pct_missing_pct": 0.0
+    },
+    {
+      "year": 2000,
+      "group": "Excluded",
+      "n_countries": 18,
+      "median_mmr": 137.24102134999998,
+      "mean_mmr": 409.9282406255556,
+      "log_gdp_pcap_ppp_median": 8.98393918486416,
+      "log_gdp_pcap_ppp_missing_pct": 50.0,
+      "chex_gdp_pct_median": 4.66606569,
+      "chex_gdp_pct_missing_pct": 61.111111111111114,
+      "tfr_median": 4.068,
+      "tfr_missing_pct": 5.555555555555555,
+      "ado_fert_rate_median": 60.988,
+      "ado_fert_rate_missing_pct": 5.555555555555555,
+      "urban_pct_median": 59.0899260145706,
+      "urban_pct_missing_pct": 5.555555555555555
+    },
+    {
+      "year": 2023,
+      "group": "Included",
+      "n_countries": 177,
+      "median_mmr": 42.10605109,
+      "mean_mmr": 109.5665065910452,
+      "log_gdp_pcap_ppp_median": 9.74360146842565,
+      "log_gdp_pcap_ppp_missing_pct": 0.0,
+      "chex_gdp_pct_median": 6.53459597,
+      "chex_gdp_pct_missing_pct": 0.0,
+      "tfr_median": 1.975,
+      "tfr_missing_pct": 0.0,
+      "ado_fert_rate_median": 31.887,
+      "ado_fert_rate_missing_pct": 0.0,
+      "urban_pct_median": 62.2518322545779,
+      "urban_pct_missing_pct": 0.0
+    },
+    {
+      "year": 2023,
+      "group": "Excluded",
+      "n_countries": 18,
+      "median_mmr": 92.65168283,
+      "mean_mmr": 186.02182279811115,
+      "log_gdp_pcap_ppp_median": 8.781198967960083,
+      "log_gdp_pcap_ppp_missing_pct": 50.0,
+      "chex_gdp_pct_median": 4.65443337,
+      "chex_gdp_pct_missing_pct": 22.22222222222222,
+      "tfr_median": 2.707,
+      "tfr_missing_pct": 5.555555555555555,
+      "ado_fert_rate_median": 48.674,
+      "ado_fert_rate_missing_pct": 5.555555555555555,
+      "urban_pct_median": 65.4731667624849,
+      "urban_pct_missing_pct": 5.555555555555555
+    }
+  ],
+  "excluded": [
+    {
+      "country_iso3": "AFG",
+      "country_name": "Afghanistan",
+      "income_level_name": "Low income"
+    },
+    {
+      "country_iso3": "COK",
+      "country_name": "Cook Islands",
+      "income_level_name": "Unclassified"
+    },
+    {
+      "country_iso3": "CUB",
+      "country_name": "Cuba",
+      "income_level_name": "Upper middle income"
+    },
+    {
+      "country_iso3": "DJI",
+      "country_name": "Djibouti",
+      "income_level_name": "Lower middle income"
+    },
+    {
+      "country_iso3": "ERI",
+      "country_name": "Eritrea",
+      "income_level_name": "Low income"
+    },
+    {
+      "country_iso3": "IRQ",
+      "country_name": "Iraq",
+      "income_level_name": "Upper middle income"
+    },
+    {
+      "country_iso3": "MCO",
+      "country_name": "Monaco",
+      "income_level_name": "High income"
+    },
+    {
+      "country_iso3": "MNE",
+      "country_name": "Montenegro",
+      "income_level_name": "Upper middle income"
+    },
+    {
+      "country_iso3": "PRI",
+      "country_name": "Puerto Rico (US)",
+      "income_level_name": "High income"
+    },
+    {
+      "country_iso3": "PRK",
+      "country_name": "Korea, Dem. People's Rep.",
+      "income_level_name": "Low income"
+    },
+    {
+      "country_iso3": "SOM",
+      "country_name": "Somalia, Fed. Rep.",
+      "income_level_name": "Low income"
+    },
+    {
+      "country_iso3": "SSD",
+      "country_name": "South Sudan",
+      "income_level_name": "Low income"
+    },
+    {
+      "country_iso3": "SYR",
+      "country_name": "Syrian Arab Republic",
+      "income_level_name": "Low income"
+    },
+    {
+      "country_iso3": "TLS",
+      "country_name": "Timor-Leste",
+      "income_level_name": "Lower middle income"
+    },
+    {
+      "country_iso3": "UKR",
+      "country_name": "Ukraine",
+      "income_level_name": "Upper middle income"
+    },
+    {
+      "country_iso3": "VEN",
+      "country_name": "Venezuela, RB",
+      "income_level_name": "Lower middle income"
+    },
+    {
+      "country_iso3": "YEM",
+      "country_name": "Yemen, Rep.",
+      "income_level_name": "Low income"
+    },
+    {
+      "country_iso3": "ZWE",
+      "country_name": "Zimbabwe",
+      "income_level_name": "Lower middle income"
+    }
+  ],
+  "models": {
+    "balanced": {
+      "label": "Balanced panel",
+      "outcome": "log_mmr_pt",
+      "n_obs": 4248,
+      "n_countries": 177,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 205,
+      "r_squared_including_fe": 0.9812124585232299,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.4959493784371953,
+          "se": 0.07681126781192917,
+          "ci_low": -0.6475390568273405,
+          "ci_high": -0.3443597000470501,
+          "p_value": 1.007310578558009e-09
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.010966860767309614,
+          "se": 0.00672899635482467,
+          "ci_low": -0.002313044933685898,
+          "ci_high": 0.024246766468305127,
+          "p_value": 0.10493400162507505
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.13077015182693597,
+          "se": 0.06240440586585887,
+          "ci_low": 0.00761291090629497,
+          "ci_high": 0.253927392747577,
+          "p_value": 0.037554870990157696
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.0007106307907410816,
+          "se": 0.0020697924867806618,
+          "ci_low": -0.00479543743881845,
+          "ci_high": 0.003374175857336287,
+          "p_value": 0.7317567377233679
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.0045259458925014494,
+          "se": 0.0036731388338366307,
+          "ci_low": -0.011775011691896738,
+          "ci_high": 0.002723119906893839,
+          "p_value": 0.2195277016457496
+        }
+      ]
+    },
+    "unbalanced": {
+      "label": "All complete country-years",
+      "outcome": "log_mmr_pt",
+      "n_obs": 4406,
+      "n_countries": 186,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 214,
+      "r_squared_including_fe": 0.9817330295933333,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.49363654843369686,
+          "se": 0.07196991220450553,
+          "ci_low": -0.6356238252534027,
+          "ci_high": -0.35164927161399107,
+          "p_value": 1.0082454227377404e-10
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.00875415588294222,
+          "se": 0.006558375062219447,
+          "ci_low": -0.004184665173289543,
+          "ci_high": 0.021692976939173984,
+          "p_value": 0.18358033888398304
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.14322990832493362,
+          "se": 0.058152042416736285,
+          "ci_low": 0.028503491530173355,
+          "ci_high": 0.2579563251196939,
+          "p_value": 0.014691603066875891
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.0007055332555496702,
+          "se": 0.0019577142257804726,
+          "ci_low": -0.004567848814861498,
+          "ci_high": 0.0031567823037621573,
+          "p_value": 0.7189694491398365
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.0038497879206076664,
+          "se": 0.0034138200882116005,
+          "ci_low": -0.010584810974411364,
+          "ci_high": 0.002885235133196031,
+          "p_value": 0.26090422891454745
+        }
+      ]
+    },
+    "pre_pandemic": {
+      "label": "Balanced panel, 2000\u20132019",
+      "outcome": "log_mmr_pt",
+      "n_obs": 3540,
+      "n_countries": 177,
+      "first_year": 2000,
+      "last_year": 2019,
+      "rank": 201,
+      "r_squared_including_fe": 0.9889250101986056,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.5265494616017541,
+          "se": 0.08683915237664379,
+          "ci_low": -0.6979295150163108,
+          "ci_high": -0.35516940818719733,
+          "p_value": 7.91608976219343e-09
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.0024126648203119227,
+          "se": 0.006323274039319693,
+          "ci_low": -0.010066533939174772,
+          "ci_high": 0.014891863579798617,
+          "p_value": 0.7032531191809436
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.04286629734570625,
+          "se": 0.06357789850055952,
+          "ci_low": -0.08260687164323631,
+          "ci_high": 0.1683394663346488,
+          "p_value": 0.5010479938142788
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": 0.0003971331224915831,
+          "se": 0.001922848954296459,
+          "ci_low": -0.003397675411177202,
+          "ci_high": 0.004191941656160368,
+          "p_value": 0.8366127731052347
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": 0.0008625246293066357,
+          "se": 0.00353058534777705,
+          "ci_low": -0.006105206963262688,
+          "ci_high": 0.00783025622187596,
+          "p_value": 0.8072824731913343
+        }
+      ]
+    },
+    "lower_bound": {
+      "label": "Outcome: lower 80% UI limit",
+      "outcome": "log_mmr_low",
+      "n_obs": 4248,
+      "n_countries": 177,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 205,
+      "r_squared_including_fe": 0.9820873724747256,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.4943466090309178,
+          "se": 0.0829642525257635,
+          "ci_low": -0.658079414340845,
+          "ci_high": -0.33061380372099053,
+          "p_value": 1.3544118111775669e-08
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.011089120389234175,
+          "se": 0.006673902848875461,
+          "ci_low": -0.0020820563832312823,
+          "ci_high": 0.024260297161699633,
+          "p_value": 0.09838030723561093
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.11096265330810627,
+          "se": 0.06314110372114767,
+          "ci_low": -0.013648486163296517,
+          "ci_high": 0.23557379277950907,
+          "p_value": 0.08059244580715795
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.0012508421611917443,
+          "se": 0.0020059969546018194,
+          "ci_low": -0.0052097461327321555,
+          "ci_high": 0.002708061810348667,
+          "p_value": 0.5337295261122925
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.0030416907497888453,
+          "se": 0.00393162330026842,
+          "ci_low": -0.010800884532375134,
+          "ci_high": 0.004717503032797443,
+          "p_value": 0.440177142046402
+        }
+      ]
+    },
+    "upper_bound": {
+      "label": "Outcome: upper 80% UI limit",
+      "outcome": "log_mmr_high",
+      "n_obs": 4248,
+      "n_countries": 177,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 205,
+      "r_squared_including_fe": 0.9787992007793695,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.47729882132789897,
+          "se": 0.07624286524750051,
+          "ci_low": -0.6277667377110839,
+          "ci_high": -0.326830904944714,
+          "p_value": 2.8490470585105723e-09
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.010691476801323995,
+          "se": 0.007210039633509012,
+          "ci_low": -0.0035377843521299576,
+          "ci_high": 0.02492073795477795,
+          "p_value": 0.13990012848697977
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.13307134516379654,
+          "se": 0.0637952792721796,
+          "ci_low": 0.007169167746835653,
+          "ci_high": 0.25897352258075745,
+          "p_value": 0.03842863040425059
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.00025882249602591286,
+          "se": 0.002251103045258265,
+          "ci_low": -0.0047014517661130295,
+          "ci_high": 0.004183806774061204,
+          "p_value": 0.9085953275134021
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.005060038361186346,
+          "se": 0.003747251152723386,
+          "ci_low": -0.012455367370457287,
+          "ci_high": 0.002335290648084595,
+          "p_value": 0.17864289662152946
+        }
+      ]
+    },
+    "first_difference": {
+      "label": "Consecutive annual first differences",
+      "outcome": "log_mmr_pt",
+      "n_obs": 4071,
+      "n_countries": 177,
+      "first_year": 2001,
+      "last_year": 2023,
+      "rank": 28,
+      "r_squared_including_fe": 0.2275553736992164,
+      "country_fixed_effects": false,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.20096047035314332,
+          "se": 0.05153957245699317,
+          "ci_low": -0.3026755889246897,
+          "ci_high": -0.09924535178159691,
+          "p_value": 0.0001371312427978716
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.008871775205318955,
+          "se": 0.003638752976173388,
+          "ci_low": 0.001690571078472843,
+          "ci_high": 0.016052979332165068,
+          "p_value": 0.01575706062853799
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.1739432477490618,
+          "se": 0.104493715459046,
+          "ci_low": -0.032278693008542414,
+          "ci_high": 0.38016518850666603,
+          "p_value": 0.09776608440692904
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.002430219153843445,
+          "se": 0.0019120592204778665,
+          "ci_low": -0.006203733776787042,
+          "ci_high": 0.0013432954691001524,
+          "p_value": 0.20540745963493448
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.001019450759820703,
+          "se": 0.00321833275979153,
+          "ci_low": -0.007370941132350377,
+          "ci_high": 0.0053320396127089715,
+          "p_value": 0.7517983744797488
+        }
+      ]
+    },
+    "income_low_income": {
+      "label": "Low income subset",
+      "outcome": "log_mmr_pt",
+      "n_obs": 432,
+      "n_countries": 18,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 46,
+      "r_squared_including_fe": 0.9257091371772143,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.3789895567291506,
+          "se": 0.20085074853060075,
+          "ci_low": -0.802747594798494,
+          "ci_high": 0.044768481340192845,
+          "p_value": 0.07636890218032318
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.00839442875098303,
+          "se": 0.01372308899425215,
+          "ci_low": -0.020558758185083084,
+          "ci_high": 0.03734761568704915,
+          "p_value": 0.5488295245407954
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.06065106782156249,
+          "se": 0.11990378056774924,
+          "ci_low": -0.19232379626138246,
+          "ci_high": 0.31362593190450744,
+          "p_value": 0.6194711168517679
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": 0.0009996888507857239,
+          "se": 0.0026312626158456016,
+          "ci_low": -0.004551790005495765,
+          "ci_high": 0.006551167707067214,
+          "p_value": 0.7087040099307499
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": 0.0087539822789068,
+          "se": 0.010941472058940771,
+          "ci_low": -0.014330505915474401,
+          "ci_high": 0.031838470473288,
+          "p_value": 0.4347066849282314
+        }
+      ]
+    },
+    "income_lower_middle_income": {
+      "label": "Lower middle income subset",
+      "outcome": "log_mmr_pt",
+      "n_obs": 1032,
+      "n_countries": 43,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 71,
+      "r_squared_including_fe": 0.9645645532702891,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.5750881357485724,
+          "se": 0.15657221965464252,
+          "ci_low": -0.8910636674032768,
+          "ci_high": -0.259112604093868,
+          "p_value": 0.0006724707628895238
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.022392542458674537,
+          "se": 0.012897372664316505,
+          "ci_low": -0.003635409329613367,
+          "ci_high": 0.048420494246962445,
+          "p_value": 0.08985814618843373
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.22765988551406624,
+          "se": 0.09769003114640015,
+          "ci_low": 0.030513421109752192,
+          "ci_high": 0.4248063499183803,
+          "p_value": 0.02466052534917246
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.0007442243568759416,
+          "se": 0.0029313551842272533,
+          "ci_low": -0.006659938618626951,
+          "ci_high": 0.005171489904875067,
+          "p_value": 0.8008239345303081
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": 0.006795257583796305,
+          "se": 0.005365680794900265,
+          "ci_low": -0.004033124651556242,
+          "ci_high": 0.017623639819148853,
+          "p_value": 0.2123381377776
+        }
+      ]
+    },
+    "income_upper_middle_income": {
+      "label": "Upper middle income subset",
+      "outcome": "log_mmr_pt",
+      "n_obs": 1296,
+      "n_countries": 54,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 82,
+      "r_squared_including_fe": 0.9528807250680138,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.3698955572911188,
+          "se": 0.12786642640047904,
+          "ci_low": -0.6263631299794866,
+          "ci_high": -0.11342798460275094,
+          "p_value": 0.0055283465776444895
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": 0.010391793042015443,
+          "se": 0.010096144675602504,
+          "ci_low": -0.009858508709224102,
+          "ci_high": 0.030642094793254988,
+          "p_value": 0.3080210854372027
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": -0.06387551998729192,
+          "se": 0.11552109743398838,
+          "ci_low": -0.2955814985402394,
+          "ci_high": 0.1678304585656556,
+          "p_value": 0.5826335594404994
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.004316843863750744,
+          "se": 0.0039577908982533164,
+          "ci_low": -0.012255167108227842,
+          "ci_high": 0.0036214793807263553,
+          "p_value": 0.2803298803209457
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.0070398147604344066,
+          "se": 0.006256905394506883,
+          "ci_low": -0.019589577698549354,
+          "ci_high": 0.005509948177680543,
+          "p_value": 0.26560468386026825
+        }
+      ]
+    },
+    "income_high_income": {
+      "label": "High income subset",
+      "outcome": "log_mmr_pt",
+      "n_obs": 1488,
+      "n_countries": 62,
+      "first_year": 2000,
+      "last_year": 2023,
+      "rank": 90,
+      "r_squared_including_fe": 0.9491449307918961,
+      "country_fixed_effects": true,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.5782132199063023,
+          "se": 0.13293003715532126,
+          "ci_low": -0.8440232573563362,
+          "ci_high": -0.3124031824562683,
+          "p_value": 5.270915319822049e-05
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": -0.0070414268430940286,
+          "se": 0.014389880446470021,
+          "ci_low": -0.035815771169112984,
+          "ci_high": 0.02173291748292493,
+          "p_value": 0.626361783058135
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.12508442077616605,
+          "se": 0.12744032184168227,
+          "ci_low": -0.12974825245780752,
+          "ci_high": 0.3799170940101396,
+          "p_value": 0.33021642907515414
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": -0.00038818506045665757,
+          "se": 0.0057727941143052505,
+          "ci_low": -0.011931600322741407,
+          "ci_high": 0.011155230201828091,
+          "p_value": 0.9466074769597014
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.017628315634059345,
+          "se": 0.01236744858340643,
+          "ci_low": -0.04235855750765109,
+          "ci_high": 0.007101926239532402,
+          "p_value": 0.15914440547462524
+        }
+      ]
+    },
+    "cross_section_2000": {
+      "label": "2000 cross-section",
+      "outcome": "log_mmr_pt",
+      "n_obs": 177,
+      "n_countries": 177,
+      "first_year": 2000,
+      "last_year": 2000,
+      "country_fixed_effects": false,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.5321806369975114,
+          "se": 0.08970502453765603,
+          "ci_low": -0.7092524307860429,
+          "ci_high": -0.35510884320897984,
+          "p_value": 1.612835126224736e-08
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": -0.03023430941065265,
+          "se": 0.02792844948805492,
+          "ci_low": -0.08536322414057779,
+          "ci_high": 0.02489460531927249,
+          "p_value": 0.28052656237278717
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.2615644415687865,
+          "se": 0.05111297354886867,
+          "ci_low": 0.16067080758550065,
+          "ci_high": 0.3624580755520723,
+          "p_value": 8.261874404225255e-07
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": 0.009046177367660937,
+          "se": 0.0017341390906112216,
+          "ci_low": 0.005623101335565962,
+          "ci_high": 0.012469253399755912,
+          "p_value": 5.223535164508501e-07
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.0022378629624742507,
+          "se": 0.0039383086831236225,
+          "ci_low": -0.010011824193831063,
+          "ci_high": 0.005536098268882562,
+          "p_value": 0.5706245885082613
+        }
+      ]
+    },
+    "cross_section_2010": {
+      "label": "2010 cross-section",
+      "outcome": "log_mmr_pt",
+      "n_obs": 177,
+      "n_countries": 177,
+      "first_year": 2010,
+      "last_year": 2010,
+      "country_fixed_effects": false,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.64667878872822,
+          "se": 0.10422760699885687,
+          "ci_low": -0.8524172011381783,
+          "ci_high": -0.44094037631826183,
+          "p_value": 4.007490018607557e-09
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": -0.04551982585413666,
+          "se": 0.022779025752187515,
+          "ci_low": -0.09048411822776867,
+          "ci_high": -0.0005555334805046538,
+          "p_value": 0.0472665707711312
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": 0.15027090030839146,
+          "se": 0.06803032023302413,
+          "ci_low": 0.015983541291917536,
+          "ci_high": 0.2845582593248654,
+          "p_value": 0.02851213563529259
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": 0.01255803692238706,
+          "se": 0.0020592383886690996,
+          "ci_low": 0.008493236347400554,
+          "ci_high": 0.016622837497373567,
+          "p_value": 6.930115199399497e-09
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": -0.001809930043808787,
+          "se": 0.003917759929675017,
+          "ci_low": -0.009543329393018904,
+          "ci_high": 0.00592346930540133,
+          "p_value": 0.6446822679510033
+        }
+      ]
+    },
+    "cross_section_2023": {
+      "label": "2023 cross-section",
+      "outcome": "log_mmr_pt",
+      "n_obs": 177,
+      "n_countries": 177,
+      "first_year": 2023,
+      "last_year": 2023,
+      "country_fixed_effects": false,
+      "coefficients": [
+        {
+          "term": "log_gdp_pcap_ppp",
+          "label": "Log GDP per capita (constant PPP)",
+          "coefficient": -0.8098338268841184,
+          "se": 0.10673727007405122,
+          "ci_low": -1.0205261484515615,
+          "ci_high": -0.5991415053166753,
+          "p_value": 2.0085315822182674e-12
+        },
+        {
+          "term": "chex_gdp_pct",
+          "label": "Current health expenditure (% GDP)",
+          "coefficient": -0.03794162280050287,
+          "se": 0.027505535651495442,
+          "ci_low": -0.09223573354878324,
+          "ci_high": 0.016352487947777508,
+          "p_value": 0.16956728438409627
+        },
+        {
+          "term": "tfr",
+          "label": "Total fertility (births/woman)",
+          "coefficient": -0.0012289780124941114,
+          "se": 0.10282966751052107,
+          "ci_low": -0.20420795020064475,
+          "ci_high": 0.20174999417565653,
+          "p_value": 0.9904781702149906
+        },
+        {
+          "term": "ado_fert_rate",
+          "label": "Adolescent fertility (births/1,000)",
+          "coefficient": 0.01405846244106284,
+          "se": 0.003080761301636994,
+          "ci_low": 0.007977243103274693,
+          "ci_high": 0.020139681778850987,
+          "p_value": 9.5799599276194e-06
+        },
+        {
+          "term": "urban_pct",
+          "label": "Urban population (%)",
+          "coefficient": 0.001011073610020211,
+          "se": 0.0038842741694395675,
+          "ci_low": -0.006656227060082196,
+          "ci_high": 0.008678374280122619,
+          "p_value": 0.7949461291512003
+        }
+      ]
+    }
+  },
+  "spending_quartiles": [
+    {
+      "quartile": "Q1",
+      "n_countries": 45,
+      "median_mmr": 170.3104838,
+      "lower_chex_pct": 1.32651615,
+      "upper_chex_pct": 4.43696308
+    },
+    {
+      "quartile": "Q2",
+      "n_countries": 44,
+      "median_mmr": 47.929730395,
+      "lower_chex_pct": 4.43696308,
+      "upper_chex_pct": 6.53459597
+    },
+    {
+      "quartile": "Q3",
+      "n_countries": 44,
+      "median_mmr": 19.204314575,
+      "lower_chex_pct": 6.53459597,
+      "upper_chex_pct": 8.50126553
+    },
+    {
+      "quartile": "Q4",
+      "n_countries": 44,
+      "median_mmr": 13.36498988,
+      "lower_chex_pct": 8.50126553,
+      "upper_chex_pct": 27.08968544
+    }
+  ],
+  "vif": [
+    {
+      "term": "log_gdp_pcap_ppp",
+      "label": "Log GDP per capita (constant PPP)",
+      "vif": 1.0474662109689548
+    },
+    {
+      "term": "chex_gdp_pct",
+      "label": "Current health expenditure (% GDP)",
+      "vif": 1.0363499335311839
+    },
+    {
+      "term": "tfr",
+      "label": "Total fertility (births/woman)",
+      "vif": 1.8410685004299954
+    },
+    {
+      "term": "ado_fert_rate",
+      "label": "Adolescent fertility (births/1,000)",
+      "vif": 1.7162954579583571
+    },
+    {
+      "term": "urban_pct",
+      "label": "Urban population (%)",
+      "vif": 1.1154990430159075
+    }
+  ],
+  "diagnostics": {
+    "residual_lag1_correlation": 0.7426573134061079,
+    "leave_one_out_gdp_min": -0.5176488773594065,
+    "leave_one_out_gdp_max": -0.4696563707895979
+  }
+}

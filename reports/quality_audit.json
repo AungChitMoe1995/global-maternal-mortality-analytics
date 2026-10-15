@@ -1,0 +1,170 @@
+{
+  "status": "PASS",
+  "data_sha256": "1dc945fec2030f3e21e5f47bd0ccfd31bc3dfbb036dcf9c070cc14213522e0e2",
+  "checks": [
+    {
+      "check": "Unique country-year keys",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "One complete 2000\u20132023 outcome grid per country",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Finite positive MMR and ordered uncertainty limits",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "gdp_pcap_ppp: finite positive observed values",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "chex_gdp_pct: finite positive observed values",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "tfr: finite positive observed values",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "live_births: finite positive observed values",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Finite nonnegative observed adolescent fertility",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Observed urban percentages in [0,100]",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "log_mmr_pt: consistent with natural logarithm",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "log_mmr_low: consistent with natural logarithm",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "log_mmr_high: consistent with natural logarithm",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "log_gdp_pcap_ppp: consistent with natural logarithm",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Complete-case flag matches finite core values",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Balanced-panel flag matches 24 complete years",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "CSV and SQLite values agree",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Enforced schema foreign keys have no orphan rows",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "CSV and Parquet values agree",
+      "violations": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Cached raw-file SHA-256 agrees with manifest",
+      "violations": 0,
+      "status": "PASS"
+    }
+  ],
+  "provenance": [
+    {
+      "resource_id": "MMEIG_2025_ESTIMATES_ZIP",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "MMEIG_2025_REPORT_PDF",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_COUNTRY_METADATA",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SH.MED.PHYS.ZS",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SE.ADT.LITR.FE.ZS",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SH.STA.BRTC.ZS",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_NY.GDP.PCAP.CD",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SH.XPD.CHEX.PC.CD",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SP.DYN.TFRT.IN",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SP.ADO.TFRT",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SP.URB.TOTL.IN.ZS",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_NY.GDP.PCAP.PP.KD",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SH.XPD.CHEX.GD.ZS",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SH.MED.NUMW.P3",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SH.STA.ANVC.ZS",
+      "status": "MATCH"
+    },
+    {
+      "resource_id": "WB_IND_SE.SEC.ENRR.FE",
+      "status": "MATCH"
+    }
+  ],
+  "raw_cache_complete": true,
+  "rows": 4680,
+  "countries": 195
+}

@@ -1,145 +1,321 @@
-# STATISTICAL ANALYSIS REPORT
-## Macroeconomic Financing, Demographic Transition, and Global Maternal Mortality: A 24-Year Longitudinal Study across 195 Countries (177-Country Balanced Panel, 2000–2023)
+# Global Maternal Mortality, 2000–2023
 
-**Author:** Dr. Aung Chit Moe (MBBS)  
-**Investigator Profile:** MBBS Physician (Myanmar) transitioning into Healthcare Data Analytics  
-**Date:** October 2026  
-**Analytical Model:** Two-Way Fixed Effects Panel Regression with Clustered Standard Errors  
+## Statistical analysis
 
----
 
-### 1. Descriptive Summary of Primary Variables (Benchmark Years, Balanced Panel `n = 177`)
+MMEIG estimates already use GDP, general fertility and skilled birth attendance. Regressions on these modeled outcomes are exploratory associations, not independent estimates of causal effects. National fertility does not measure individual parity or spacing.
 
-|   Year | Variable      |     Mean |       SD |   Median |      IQR |     Min |       Max |
-|-------:|:--------------|---------:|---------:|---------:|---------:|--------:|----------:|
-|   2000 | mmr_pt        |   217.74 |   303.18 |    67.64 |   321.64 |    3.55 |   1603.14 |
-|   2000 | gdp_pcap_ppp  | 18470.6  | 21916.4  |  9997.33 | 17510.2  |  711.98 | 114148    |
-|   2000 | chex_gdp_pct  |     5.46 |     2.8  |     4.87 |     3.38 |    1.22 |     22.28 |
-|   2000 | tfr           |     3.22 |     1.69 |     2.74 |     2.61 |    1.15 |      7.83 |
-|   2000 | ado_fert_rate |    63.64 |    48.72 |    48.54 |    70.83 |    2.67 |    206.24 |
-|   2000 | urban_pct     |    53.4  |    23    |    53.93 |    36.75 |    8.04 |    100    |
-|   2010 | mmr_pt        |   176.34 |   258.39 |    54.74 |   229.72 |    2.61 |   1311.06 |
-|   2010 | gdp_pcap_ppp  | 21938.2  | 23526.4  | 13129    | 24869.4  |  988.02 | 132502    |
-|   2010 | chex_gdp_pct  |     6.23 |     2.86 |     5.49 |     3.92 |    1.73 |     17.73 |
-|   2010 | tfr           |     2.92 |     1.5  |     2.38 |     2.09 |    1.15 |      7.64 |
-|   2010 | ado_fert_rate |    55.84 |    45.1  |    44.38 |    63.13 |    1.76 |    196.63 |
-|   2010 | urban_pct     |    56.98 |    22.96 |    58.12 |    35.88 |   10.98 |    100    |
-|   2015 | mmr_pt        |   144.16 |   212.24 |    48.08 |   172.48 |    1.46 |   1176.03 |
-|   2015 | gdp_pcap_ppp  | 23344.6  | 23860.3  | 14540.8  | 26100.2  |  992.29 | 130097    |
-|   2015 | chex_gdp_pct  |     6.44 |     2.69 |     6.07 |     3.8  |    1.82 |     16.4  |
-|   2015 | tfr           |     2.77 |     1.37 |     2.27 |     1.84 |    1.2  |      7.22 |
-|   2015 | ado_fert_rate |    51.14 |    42.42 |    39.68 |    62.18 |    1.29 |    178.4  |
-|   2015 | urban_pct     |    58.61 |    22.77 |    59.25 |    37.18 |   13.23 |    100    |
-|   2023 | mmr_pt        |   109.57 |   157.98 |    42.11 |   129.87 |    1.1  |    992.83 |
-|   2023 | gdp_pcap_ppp  | 26119.3  | 25979.1  | 17044.8  | 33360.6  | 1033.01 | 130297    |
-|   2023 | chex_gdp_pct  |     6.81 |     3.27 |     6.53 |     4.06 |    1.33 |     27.09 |
-|   2023 | tfr           |     2.42 |     1.21 |     1.98 |     1.72 |    0.72 |      6.12 |
-|   2023 | ado_fert_rate |    41.57 |    38.37 |    31.89 |    51.88 |    0.54 |    163.09 |
-|   2023 | urban_pct     |    61.03 |    22.19 |    62.25 |    35.81 |   15.06 |    100    |
 
----
+## Samples
 
-### 2. Spearman Non-Parametric Correlation Matrix (Balanced Panel `n = 4,248`)
 
-|                       |   ln(MMR) |   ln(GDP PPP) |   Health Exp % GDP |   Total Fertility (TFR) |   Adolescent Fertility |   Urban Pop % |
-|:----------------------|----------:|--------------:|-------------------:|------------------------:|-----------------------:|--------------:|
-| ln(MMR)               |  1        |     -0.84062  |          -0.401796 |                0.816544 |               0.841845 |     -0.624243 |
-| ln(GDP PPP)           | -0.84062  |      1        |           0.29229  |               -0.776053 |              -0.764142 |      0.745306 |
-| Health Exp % GDP      | -0.401796 |      0.29229  |           1        |               -0.376002 |              -0.337195 |      0.354525 |
-| Total Fertility (TFR) |  0.816544 |     -0.776053 |          -0.376002 |                1        |               0.788219 |     -0.527529 |
-| Adolescent Fertility  |  0.841845 |     -0.764142 |          -0.337195 |                0.788219 |               1        |     -0.554096 |
-| Urban Pop %           | -0.624243 |      0.745306 |           0.354525 |               -0.527529 |              -0.554096 |      1        |
+|   all_countries |   all_rows |   balanced_countries |   balanced_rows |   complete_rows |   complete_countries |
+|----------------:|-----------:|---------------------:|----------------:|----------------:|---------------------:|
+|             195 |       4680 |                  177 |            4248 |            4406 |                  186 |
 
-* **ln(GDP per capita PPP)** exhibits a massive inverse correlation with **ln(MMR)** ($\rho = -0.84, p < 0.001$ across the 24-year panel; $\rho = -0.85, p < 0.001$ in 2023).
-* **Adolescent fertility rate** is intensely positively correlated with maternal mortality ($\rho = +0.84, p < 0.001$ across the panel; $\rho = +0.86, p < 0.001$ in 2023).
-* **Total fertility rate** strongly tracks maternal mortality ($\rho = +0.82, p < 0.001$ across the panel; $\rho = +0.79, p < 0.001$ in 2023).
-* **Health expenditure as % of GDP** displays a moderate negative rank correlation ($\rho = -0.40, p < 0.001$ across the panel; $\rho = -0.39, p < 0.001$ in 2023), proving that higher national healthcare budget commitment correlates with lower mortality across countries.
 
----
+## Full-sample trends
 
-### 3. Demographic Transition & Adolescent Pregnancy: Severe Obstetric Risks (Figure 6)
 
-#### A. Total Fertility Rate (TFR) vs MMR
-- Spearman rank correlation: $\rho = +0.82$ across the 24-year balanced panel ($\rho = +0.79$ in 2023, $p < 0.001$).
-- **Biological / Clinical Mechanism:** High fertility rates mean a substantial proportion of women experience grand multiparity (parity $\ge 5$). In clinical obstetrics, grand multiparity is a notorious risk factor for **uterine atony**, the primary cause of fatal postpartum hemorrhage (PPH), as well as uterine rupture, placenta previa, and placental abruption. In addition, closely spaced pregnancies cause maternal depletion syndrome and chronic severe iron deficiency anemia, vastly reducing physiological resilience to obstetric blood loss.
+|   year |   n_countries |   median_mmr |   mean_mmr |   maternal_deaths |   live_births |   aggregate_mmr |
+|-------:|--------------:|-------------:|-----------:|------------------:|--------------:|----------------:|
+|   2000 |           195 |        70.99 |     235.48 |            440079 |   1.35309e+08 |          325.24 |
+|   2010 |           195 |        56.14 |     185.89 |            359736 |   1.42998e+08 |          251.57 |
+|   2015 |           195 |        51.87 |     155.75 |            322169 |   1.43934e+08 |          223.83 |
+|   2023 |           195 |        46.65 |     116.62 |            248743 |   1.31841e+08 |          188.67 |
 
-#### B. Adolescent Fertility Rate (Ages 15–19) vs MMR
-- Spearman rank correlation: $\rho = +0.84$ across the balanced panel ($\rho = +0.86$ in 2023, $p < 0.001$).
-- Cross-sectional multivariable regression: In 2023, each additional 10 adolescent births per 1,000 girls aged 15–19 is associated with an **~15% increase in national MMR** ($\beta = +0.0141, p < 0.001$), completely independent of national GDP and adult fertility.
-- **Biological & Obstetric Mechanisms:**
-  1. **Anatomical Cephalopelvic Disproportion (CPD):** Pelvic growth and canal remodeling continue through late adolescence. Young girls frequently suffer obstructed labor, which without immediate emergency caesarean section results in uterine rupture, fatal sepsis, or obstetric fistula.
-  2. **Hypertensive Disorders of Pregnancy:** Adolescent primigravidas have significantly elevated incidences of pre-eclampsia and eclampsia.
-  3. **Social & Behavioral Delays:** Teenage mothers face acute social stigma, lack of financial autonomy, and delayed presentation to skilled birth facilities (Delays 1 and 2).
 
----
+Aggregate MMR is 100,000 times the sum of country median death estimates divided by total live births. It is a derived snapshot aggregate, not the official posterior median or uncertainty interval of a global total. Country means and medians answer different questions and weight each country equally.
 
-### 4. Domestic Health Financing Priority (% of GDP) Decoupled from GDP (Figure 7)
 
-#### Why Decoupling Health Expenditure % from GDP Matters
-GDP per capita measures **macroeconomic capacity** (the overall size of the economic pie). In contrast, Current Health Expenditure (% of GDP) measures **national policy priority** (the share of national resources a government and society choose to invest in health). Integrating the two into a single bubble plot obscured this critical distinction.
 
-#### Empirical Evidence of Protective Association:
-- Standalone Spearman rank correlation: $\rho = -0.40$ ($p < 0.001$) across the 24-year balanced panel ($\rho = -0.39, p < 0.001$ in 2023).
-- **Median MMR across Spending Priority Quartiles (2023, Balanced Panel `n = 177`):**
-  - **Q1 (< 4.4% of GDP allocated to health):** Median MMR = **170.3** deaths per 100k live births.
-  - **Q2 (4.4% – 6.5% of GDP allocated to health):** Median MMR = **47.9** deaths per 100k live births.
-  - **Q3 (6.5% – 8.5% of GDP allocated to health):** Median MMR = **19.2** deaths per 100k live births.
-  - **Q4 (> 8.5% of GDP allocated to health):** Median MMR = **13.4** deaths per 100k live births.
-- **Evidence Within Lower-Middle-Income Countries (LMICs):**
-  - Even among the 43 Lower-Middle-Income countries with similar modest per-capita income, the correlation between health spending % of GDP and MMR is **$\rho = -0.43$ ($p = 0.004$)**.
-  - Countries that prioritize health budgets achieve significantly lower maternal mortality ratios than peers with identical economic levels who underfund healthcare.
+## Selection into the balanced panel
 
----
 
-### 5. Cross-Sectional OLS Benchmark Regressions
+|   year | group    |   n_countries |   median_mmr |   mean_mmr |
+|-------:|:---------|--------------:|-------------:|-----------:|
+|   2000 | Included |           177 |        67.64 |     217.74 |
+|   2000 | Excluded |            18 |       137.24 |     409.93 |
+|   2023 | Included |           177 |        42.11 |     109.57 |
+|   2023 | Excluded |            18 |        92.65 |     186.02 |
 
-Estimated cross-sectional specification across benchmark years:
-`ln(MMR_i) = beta0 + beta1*ln(GDP_i) + beta2*HealthExp_i + beta3*TFR_i + beta4*AdolescentFert_i + beta5*Urban_i + e_i`
 
-| Independent Variable | Year 2000 (MDG Baseline) Coef (SE) | Year 2010 Coef (SE) | Year 2023 (SDG Modern) Coef (SE) |
-|---|:---:|:---:|:---:|
-| **ln(GDP per cap PPP)** | **-0.532** (0.091)*** | **-0.647** (0.098)*** | **-0.810** (0.107)*** |
-| **Health Exp % GDP** | -0.015 (0.024) | -0.028 (0.025) | -0.038 (0.028) |
-| **Total Fertility (TFR)** | **+0.161** (0.068)** | +0.078 (0.081) | -0.001 (0.103) |
-| **Adolescent Fertility** | **+0.009** (0.002)*** | **+0.013** (0.003)*** | **+0.014** (0.003)*** |
-| **Urban Population %** | -0.004 (0.003) | -0.002 (0.003) | +0.001 (0.004) |
-| **Model R-squared** | **0.832** | **0.802** | **0.750** |
-| **Countries (Balanced Panel)** | 177 | 177 | 177 |
+Excluded countries:
 
-*Significance: *** p < 0.001, ** p < 0.01, * p < 0.05. Heteroskedasticity-robust standard errors (HC1) in parentheses.*
 
-#### Clinical Takeaways:
-1. **The Increasing Elasticity of Economic Power:** The protective association of real purchasing power increased from -0.532 in 2000 to -0.810 in 2023. In the modern era, a 10% increase in real GDP per capita corresponds to an ~8.1% lower MMR across countries.
-2. **Persistent Adolescent Risk:** Across all three decades, adolescent fertility remains a consistently powerful, statistically significant predictor ($p < 0.001$) independent of overall national income and total adult fertility.
+| country_iso3   | country_name              | income_level_name   |
+|:---------------|:--------------------------|:--------------------|
+| AFG            | Afghanistan               | Low income          |
+| COK            | Cook Islands              | Unclassified        |
+| CUB            | Cuba                      | Upper middle income |
+| DJI            | Djibouti                  | Lower middle income |
+| ERI            | Eritrea                   | Low income          |
+| IRQ            | Iraq                      | Upper middle income |
+| MCO            | Monaco                    | High income         |
+| MNE            | Montenegro                | Upper middle income |
+| PRI            | Puerto Rico (US)          | High income         |
+| PRK            | Korea, Dem. People's Rep. | Low income          |
+| SOM            | Somalia, Fed. Rep.        | Low income          |
+| SSD            | South Sudan               | Low income          |
+| SYR            | Syrian Arab Republic      | Low income          |
+| TLS            | Timor-Leste               | Lower middle income |
+| UKR            | Ukraine                   | Upper middle income |
+| VEN            | Venezuela, RB             | Lower middle income |
+| YEM            | Yemen, Rep.               | Low income          |
+| ZWE            | Zimbabwe                  | Lower middle income |
 
----
 
-### 6. Primary Longitudinal Model: Two-Way Fixed Effects (TWFE) Panel Regression
+Selection is associated with data availability. Neither balanced nor unbalanced complete-case analysis removes this bias.
 
-Estimated specification across 24 consecutive years (2000–2023, n = 4,248 country-years across 177 balanced countries), controlling for all unobserved time-invariant country heterogeneity and global secular time trends:
-`ln(MMR_it) = alpha_i + gamma_t + beta1*ln(GDP_it) + beta2*HealthExp_it + beta3*TFR_it + beta4*AdoFert_it + beta5*Urban_it + e_it`
 
-Standard errors are clustered at the country level to address longitudinal autocorrelation.
 
-| Independent Variable | Primary Model: Point Estimate (`0.5`) Coef (Cluster SE) | Sensitivity: Lower 80% UI (`0.1`) Coef (Cluster SE) | Sensitivity: Upper 80% UI (`0.9`) Coef (Cluster SE) | Pre-COVID (2000–2019) Coef (Cluster SE) |
-|---|:---:|:---:|:---:|:---:|
-| **ln(GDP per cap PPP)** | **-0.4959** (0.0750)*** | **-0.4907** (0.0768)*** | **-0.4977** (0.0747)*** | **-0.5265** (0.0784)*** |
-| **Health Exp % GDP** | +0.0110 (0.0066) | +0.0097 (0.0068) | +0.0114 (0.0065) | +0.0101 (0.0065) |
-| **Total Fertility (TFR)** | **+0.1308** (0.0609)* | **+0.1275** (0.0617)* | **+0.1299** (0.0611)* | +0.0429 (0.0614) |
-| **Adolescent Fertility** | -0.0007 (0.0020) | -0.0007 (0.0020) | -0.0007 (0.0020) | -0.0004 (0.0020) |
-| **Urban Population %** | -0.0045 (0.0036) | -0.0047 (0.0037) | -0.0043 (0.0035) | -0.0051 (0.0037) |
-| **Country Fixed Effects** | Included (177 entities) | Included (177 entities) | Included (177 entities) | Included (177 entities) |
-| **Year Fixed Effects** | Included (24 years) | Included (24 years) | Included (24 years) | Included (20 years) |
-| **Clustered SE Groups** | 177 Countries | 177 Countries | 177 Countries | 177 Countries |
-| **Total Observations** | 4,248 | 4,248 | 4,248 | 3,540 |
+## Model specification and inference
 
-*Significance: *** p < 0.001, ** p < 0.01, * p < 0.05.*
 
-#### Plain-Language Epidemiological Interpretation:
-1. **Economic Capacity is the Macro-Enabler:** Controlling for country-specific baseline traits and global secular progress, a doubling of real GDP per capita within a country yields a **29.0% reduction** in MMR ($\beta = -0.4959, p < 0.001$). Economic growth builds roads, communication networks, 24/7 operating room electricity, and blood-banking systems.
-2. **Fertility Reduction Directly Protects Mothers:** Each reduction of 1 child per woman reduces maternal mortality by **12.3%** within countries ($\beta = +0.1308, p = 0.032$). Fewer births directly eliminate high-order grand multiparity and maternal depletion.
-3. **Understanding the Panel vs Cross-Sectional Contrast:**
-   - Why are adolescent fertility and health expenditure % of GDP massive structural predictors across countries ($\rho = +0.86$ and $-0.40$), but show muted within-country panel coefficients?
-   - In a fixed-effects model, country fixed effects absorb all long-term between-country structural differences (the 19-fold mean / 46-fold median gap between Low-Income and High-Income nations). It only evaluates short-term, year-to-year deviations within a single country.
-   - Teenage pregnancy and health financing architecture are slow-moving structural determinants built over generations. Within a country from one year to the next, rapid economic expansion and national fertility transitions dominate the annual mortality changes.
-4. **Uncertainty Interval Invariance:** Re-estimating the TWFE specification using the 10th percentile lower bound (`0.1`) and the 90th percentile upper bound (`0.9`) yields virtually identical coefficients (GDP coefficient: -0.491 vs -0.498), proving that **our statistical findings are robust to MMEIG posterior estimation uncertainty**.
+Log MMR is regressed on log constant-PPP GDP, current health expenditure (% GDP), total fertility, adolescent fertility and urban population (%). Panel fits include explicit country and year dummy columns. Cluster covariance includes the full design rank in its finite-sample adjustment, with t inference using the number of country clusters minus one degrees of freedom. Cross-sections use HC1 standard errors. First differences use consecutive annual changes and year effects. All fits give equal weight to country-years. Fixed effects do not remove changing confounding, reverse causality, or dependence introduced by the MMEIG model.
+
+
+
+### Balanced panel
+
+177 countries, 4248 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.49595 | 0.07681 | -0.64754 |  -0.34436 |   0.00000 |
+| Current health expenditure (% GDP)  |       0.01097 | 0.00673 | -0.00231 |   0.02425 |   0.10493 |
+| Total fertility (births/woman)      |       0.13077 | 0.06240 |  0.00761 |   0.25393 |   0.03755 |
+| Adolescent fertility (births/1,000) |      -0.00071 | 0.00207 | -0.00480 |   0.00337 |   0.73176 |
+| Urban population (%)                |      -0.00453 | 0.00367 | -0.01178 |   0.00272 |   0.21953 |
+
+
+### All complete country-years
+
+186 countries, 4406 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.49364 | 0.07197 | -0.63562 |  -0.35165 |   0.00000 |
+| Current health expenditure (% GDP)  |       0.00875 | 0.00656 | -0.00418 |   0.02169 |   0.18358 |
+| Total fertility (births/woman)      |       0.14323 | 0.05815 |  0.02850 |   0.25796 |   0.01469 |
+| Adolescent fertility (births/1,000) |      -0.00071 | 0.00196 | -0.00457 |   0.00316 |   0.71897 |
+| Urban population (%)                |      -0.00385 | 0.00341 | -0.01058 |   0.00289 |   0.26090 |
+
+
+### Balanced panel, 2000–2019
+
+177 countries, 3540 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.52655 | 0.08684 | -0.69793 |  -0.35517 |   0.00000 |
+| Current health expenditure (% GDP)  |       0.00241 | 0.00632 | -0.01007 |   0.01489 |   0.70325 |
+| Total fertility (births/woman)      |       0.04287 | 0.06358 | -0.08261 |   0.16834 |   0.50105 |
+| Adolescent fertility (births/1,000) |       0.00040 | 0.00192 | -0.00340 |   0.00419 |   0.83661 |
+| Urban population (%)                |       0.00086 | 0.00353 | -0.00611 |   0.00783 |   0.80728 |
+
+
+### Outcome: lower 80% UI limit
+
+177 countries, 4248 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.49435 | 0.08296 | -0.65808 |  -0.33061 |   0.00000 |
+| Current health expenditure (% GDP)  |       0.01109 | 0.00667 | -0.00208 |   0.02426 |   0.09838 |
+| Total fertility (births/woman)      |       0.11096 | 0.06314 | -0.01365 |   0.23557 |   0.08059 |
+| Adolescent fertility (births/1,000) |      -0.00125 | 0.00201 | -0.00521 |   0.00271 |   0.53373 |
+| Urban population (%)                |      -0.00304 | 0.00393 | -0.01080 |   0.00472 |   0.44018 |
+
+
+### Outcome: upper 80% UI limit
+
+177 countries, 4248 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.47730 | 0.07624 | -0.62777 |  -0.32683 |   0.00000 |
+| Current health expenditure (% GDP)  |       0.01069 | 0.00721 | -0.00354 |   0.02492 |   0.13990 |
+| Total fertility (births/woman)      |       0.13307 | 0.06380 |  0.00717 |   0.25897 |   0.03843 |
+| Adolescent fertility (births/1,000) |      -0.00026 | 0.00225 | -0.00470 |   0.00418 |   0.90860 |
+| Urban population (%)                |      -0.00506 | 0.00375 | -0.01246 |   0.00234 |   0.17864 |
+
+
+### Consecutive annual first differences
+
+177 countries, 4071 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.20096 | 0.05154 | -0.30268 |  -0.09925 |   0.00014 |
+| Current health expenditure (% GDP)  |       0.00887 | 0.00364 |  0.00169 |   0.01605 |   0.01576 |
+| Total fertility (births/woman)      |       0.17394 | 0.10449 | -0.03228 |   0.38017 |   0.09777 |
+| Adolescent fertility (births/1,000) |      -0.00243 | 0.00191 | -0.00620 |   0.00134 |   0.20541 |
+| Urban population (%)                |      -0.00102 | 0.00322 | -0.00737 |   0.00533 |   0.75180 |
+
+
+### Low income subset
+
+18 countries, 432 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.37899 | 0.20085 | -0.80275 |   0.04477 |   0.07637 |
+| Current health expenditure (% GDP)  |       0.00839 | 0.01372 | -0.02056 |   0.03735 |   0.54883 |
+| Total fertility (births/woman)      |       0.06065 | 0.11990 | -0.19232 |   0.31363 |   0.61947 |
+| Adolescent fertility (births/1,000) |       0.00100 | 0.00263 | -0.00455 |   0.00655 |   0.70870 |
+| Urban population (%)                |       0.00875 | 0.01094 | -0.01433 |   0.03184 |   0.43471 |
+
+
+### Lower middle income subset
+
+43 countries, 1032 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.57509 | 0.15657 | -0.89106 |  -0.25911 |   0.00067 |
+| Current health expenditure (% GDP)  |       0.02239 | 0.01290 | -0.00364 |   0.04842 |   0.08986 |
+| Total fertility (births/woman)      |       0.22766 | 0.09769 |  0.03051 |   0.42481 |   0.02466 |
+| Adolescent fertility (births/1,000) |      -0.00074 | 0.00293 | -0.00666 |   0.00517 |   0.80082 |
+| Urban population (%)                |       0.00680 | 0.00537 | -0.00403 |   0.01762 |   0.21234 |
+
+
+### Upper middle income subset
+
+54 countries, 1296 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.36990 | 0.12787 | -0.62636 |  -0.11343 |   0.00553 |
+| Current health expenditure (% GDP)  |       0.01039 | 0.01010 | -0.00986 |   0.03064 |   0.30802 |
+| Total fertility (births/woman)      |      -0.06388 | 0.11552 | -0.29558 |   0.16783 |   0.58263 |
+| Adolescent fertility (births/1,000) |      -0.00432 | 0.00396 | -0.01226 |   0.00362 |   0.28033 |
+| Urban population (%)                |      -0.00704 | 0.00626 | -0.01959 |   0.00551 |   0.26560 |
+
+
+### High income subset
+
+62 countries, 1488 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.57821 | 0.13293 | -0.84402 |  -0.31240 |   0.00005 |
+| Current health expenditure (% GDP)  |      -0.00704 | 0.01439 | -0.03582 |   0.02173 |   0.62636 |
+| Total fertility (births/woman)      |       0.12508 | 0.12744 | -0.12975 |   0.37992 |   0.33022 |
+| Adolescent fertility (births/1,000) |      -0.00039 | 0.00577 | -0.01193 |   0.01116 |   0.94661 |
+| Urban population (%)                |      -0.01763 | 0.01237 | -0.04236 |   0.00710 |   0.15914 |
+
+
+### 2000 cross-section
+
+177 countries, 177 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.53218 | 0.08971 | -0.70925 |  -0.35511 |   0.00000 |
+| Current health expenditure (% GDP)  |      -0.03023 | 0.02793 | -0.08536 |   0.02489 |   0.28053 |
+| Total fertility (births/woman)      |       0.26156 | 0.05111 |  0.16067 |   0.36246 |   0.00000 |
+| Adolescent fertility (births/1,000) |       0.00905 | 0.00173 |  0.00562 |   0.01247 |   0.00000 |
+| Urban population (%)                |      -0.00224 | 0.00394 | -0.01001 |   0.00554 |   0.57062 |
+
+
+### 2010 cross-section
+
+177 countries, 177 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.64668 | 0.10423 | -0.85242 |  -0.44094 |   0.00000 |
+| Current health expenditure (% GDP)  |      -0.04552 | 0.02278 | -0.09048 |  -0.00056 |   0.04727 |
+| Total fertility (births/woman)      |       0.15027 | 0.06803 |  0.01598 |   0.28456 |   0.02851 |
+| Adolescent fertility (births/1,000) |       0.01256 | 0.00206 |  0.00849 |   0.01662 |   0.00000 |
+| Urban population (%)                |      -0.00181 | 0.00392 | -0.00954 |   0.00592 |   0.64468 |
+
+
+### 2023 cross-section
+
+177 countries, 177 observations.
+
+
+| label                               |   coefficient |      se |   ci_low |   ci_high |   p_value |
+|:------------------------------------|--------------:|--------:|---------:|----------:|----------:|
+| Log GDP per capita (constant PPP)   |      -0.80983 | 0.10674 | -1.02053 |  -0.59914 |   0.00000 |
+| Current health expenditure (% GDP)  |      -0.03794 | 0.02751 | -0.09224 |   0.01635 |   0.16957 |
+| Total fertility (births/woman)      |      -0.00123 | 0.10283 | -0.20421 |   0.20175 |   0.99048 |
+| Adolescent fertility (births/1,000) |       0.01406 | 0.00308 |  0.00798 |   0.02014 |   0.00001 |
+| Urban population (%)                |       0.00101 | 0.00388 | -0.00666 |   0.00868 |   0.79495 |
+
+
+## Diagnostics
+
+
+| term             | label                               |   vif |
+|:-----------------|:------------------------------------|------:|
+| log_gdp_pcap_ppp | Log GDP per capita (constant PPP)   | 1.047 |
+| chex_gdp_pct     | Current health expenditure (% GDP)  | 1.036 |
+| tfr              | Total fertility (births/woman)      | 1.841 |
+| ado_fert_rate    | Adolescent fertility (births/1,000) | 1.716 |
+| urban_pct        | Urban population (%)                | 1.115 |
+
+
+Within-panel VIF measures collinearity after country/year effects are removed.
+
+
+|   residual_lag1_correlation |   leave_one_out_gdp_min |   leave_one_out_gdp_max |
+|----------------------------:|------------------------:|------------------------:|
+|                     0.74266 |                -0.51765 |                -0.46966 |
+
+
+Residual serial dependence and influential-country slopes are diagnostics, not evidence of causal identification. Clustered SE account for within-country dependence under the cluster assumptions, but do not propagate upstream MMEIG uncertainty or all cross-country dependence.
+
+
+
+## Outcome-bound sensitivity
+
+
+The lower/upper 80% UI fits replace every outcome by its marginal lower/upper limit. These two vectors are not joint posterior draws. They do not yield a posterior interval for a coefficient, represent a worst-case bound, or establish robustness to measurement error. Full uncertainty propagation would require suitable joint posterior draws and an explicit analysis plan.
+
+
+
+## Expenditure quartiles
+
+
+| quartile   |   n_countries |   median_mmr |   lower_chex_pct |   upper_chex_pct |
+|:-----------|--------------:|-------------:|-----------------:|-----------------:|
+| Q1         |            45 |      170.31  |            1.327 |            4.437 |
+| Q2         |            44 |       47.93  |            4.437 |            6.535 |
+| Q3         |            44 |       19.204 |            6.535 |            8.501 |
+| Q4         |            44 |       13.365 |            8.501 |           27.09  |
+
+
+Current expenditure is not government budget priority. Its ratio to GDP may change because either numerator or denominator changes.
+
+
+
+## Remaining limits
+
+
+The observational ecological design cannot identify individual risk, parity, birth spacing, health-system mechanisms or intervention effects. The current metadata classify countries using one acquisition-time income classification throughout 2000–2023. Income-stratified results are exploratory, with fewer country clusters in each subgroup. No CRVS-only analysis is claimed: a defensible source-quality classification has not been constructed. No model here establishes predictive performance on unseen countries or future years.
+
+
+
+## Reproducibility
+
+
+Analytical input SHA-256: `1dc945fec2030f3e21e5f47bd0ccfd31bc3dfbb036dcf9c070cc14213522e0e2`. Machine-readable coefficients, sample comparisons, VIF, country omissions and residuals are in `reports/tables/`.
+
+
+
+Sources: [WHO 2025 report](https://www.who.int/publications/i/item/9789240108462), [WHO health financing metadata](https://www.who.int/data/gho/data/themes/topics/indicator-groups/indicator-group-details/GHO/health-expenditure).
